@@ -1,0 +1,10 @@
+
+
+@mixin bg-color {
+    $primary-dark-bg: rgb(47, 48, 48);
+}
+
+@mixin fade-in($time: 0.3s, $ease: ease-in) {
+    animation: fadeIn $time $ease forwards;
+}
+
