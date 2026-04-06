@@ -30,6 +30,7 @@
 }
 
 .selection {
+    position: relative;
     width: 100%;
     height: 539px;
     display: flex;
@@ -39,6 +40,7 @@
         width: 40%;
         display: flex;
         flex-direction: column;
+        padding: 0 0 0 10px;
     }
 
     .theme-game {
@@ -51,6 +53,9 @@
 
 .choose-box {
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     &__headline {
         display: flex;
@@ -63,7 +68,7 @@
     }
 
     &__themes {
-        padding: 10px 50px;
+        padding: 10px 40px;
         display: flex;
         flex-direction: column;
         gap: 12px;
@@ -76,7 +81,8 @@
             gap: 10px;
             cursor: pointer;
 
-            &:hover {
+            &:hover,
+            &.active {
                 .theme__circle-img {
                     background-image: url('../../../public/assets/img/circle_point.png');
                 }
@@ -108,14 +114,23 @@
                 font-weight: 400;
                 line-height: 100%;
             }
-
-
         }
     }
-}
 
-.theme-game__img {
-    width: 460px;
-    height: 412px;
-    background-image: url('../../../public/assets/img/Theme\ Visual.png');
+    .theme-game__img {
+        position: absolute;
+        width: 460px;
+        height: 412px;
+        top: 0;
+        right: 0;
+    }
+
+    .code-vibe-img {
+        display: none;
+    }
+
+    .theme-wrapper:hover .code-vibe-img,
+    .theme.active+.code-vibe-img {
+        display: block;
+    }
 }

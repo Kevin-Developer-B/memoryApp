@@ -8,26 +8,33 @@ export function settingScreenTemplate() {
                         <img class="underline-img" src="public/assets/img/Line 3.png" alt="">
                     </div>
                     <div class="selection">
-                        <div class="selection__box">
-                            <div class="choose-box">
+                        <div class="choose-box">
+                            <div>
                                 <div class="choose-box__headline">
                                     <img src="public/assets/img/palette.png" alt="">
                                     <h3>Game themes</h3>
                                 </div>
                                 <div class="choose-box__themes">
-                                    <button class="theme">
-                                        <span class="theme__circle-img"></span>
-                                        <span class="theme__text">Code vibes theme</span>
-                                        <span class="theme__line"></span>
-                                    </button>
-                                    <button class="theme">
-                                        <span class="theme__circle-img"></span>
-                                        <span class="theme__text">Gaming theme</span>
-                                        <span class="theme__line"></span>
-                                    </button>
+                                    <div class="theme-wrapper">
+                                        <button class="theme code-vibe-theme">
+                                            <span class="theme__circle-img"></span>
+                                            <span class="theme__text">Code vibes theme</span>
+                                            <span class="theme__line"></span>
+                                        </button>
+                                        <img class="theme-game__img code-vibe-img" src="public/assets/img/Theme Visual.png" alt="">
+                                    </div>
+                                    <div class="theme-wrapper">
+                                        <button class="theme gaming-theme">
+                                            <span class="theme__circle-img"></span>
+                                            <span class="theme__text">Gaming theme</span>
+                                            <span class="theme__line"></span>
+                                        </button>
+                                        <img class="theme-game__img code-vibe-img" src="public/assets/img/Theme_gaming.png" alt="">
+                                    </div>
                                 </div>
                             </div>
-                            <div class="choose-box">
+                        
+                            <div>
                                 <div class="choose-box__headline">
                                     <img src="public/assets/img/chess.png" alt="">
                                     <h3>Choose player</h3>
@@ -45,7 +52,8 @@ export function settingScreenTemplate() {
                                     </button>
                                 </div>
                             </div>
-                            <div class="choose-box">
+            
+                            <div>
                                 <div class="choose-box__headline">
                                     <img src="public/assets/img/card_size.png" alt="">
                                     <h3>Board size</h3>
@@ -68,9 +76,6 @@ export function settingScreenTemplate() {
                                     </button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="selection__box theme-game">
-                            <div class="theme-game__img"></div>
                         </div>
                     </div>
                 </div>

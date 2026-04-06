@@ -14,6 +14,13 @@ function init() {
         playBtn?.addEventListener('click', playScreen);
     }
 
+
+
+
+
+
+
+
     // const fieldRef = document.getElementById("field");
     // if (fieldRef) {
     //     fieldRef.addEventListener("click", e => {
@@ -34,5 +41,10 @@ function playScreen() {
     const settingScreenRef = document.getElementById('settingScreen');
     if (settingScreenRef) {
         settingScreenRef.innerHTML = settingScreenTemplate();
+    }
+
+    const themes = document.querySelectorAll(".theme");
+    if (themes.length > 0) {
+        themes[0].classList.add("active");
     }
 }
