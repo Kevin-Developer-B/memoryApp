@@ -77,6 +77,14 @@ export function settingScreenTemplate() {
                                 </div>
                             </div>
                         </div>
+
+                        <div class="start-container">
+                            <span>Game theme</span>
+                            <span>Player</span>
+                            <span>Board size</span>
+                            <button>Start</button>
+                        </div>
+
                     </div>
                 </div>
             </div>
