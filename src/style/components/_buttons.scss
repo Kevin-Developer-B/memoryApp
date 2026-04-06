@@ -2,7 +2,8 @@ button {
     background: transparent;
     border: none;
     cursor: pointer;
-    background-color: #F0EA6E;
+    padding: 0;
+    margin: 0;
 }
 
 .btn {
@@ -14,6 +15,7 @@ button {
     align-items: center;
     gap: 20px;
     transition: 256ms ease-in-out;
+    background-color: #F0EA6E;
 
     &:hover {
         transform: scale(1.1);
