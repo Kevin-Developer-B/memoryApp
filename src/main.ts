@@ -16,11 +16,11 @@ function init() {
         startScreenRef.innerHTML = startScreeTemplate();
 
         const playBtn = document.getElementById('playBtn');
-        playBtn?.addEventListener('click', playScreen);
+        playBtn?.addEventListener('click', settingScreen);
     }
 }
 
-function playScreen() {
+function settingScreen() {
     const play = document.getElementById('startScreen');
     if (play) {
         play.style.display = "none";
@@ -102,11 +102,32 @@ function playScreen() {
         });
     });
 
+    const Game = document.getElementById("startGame");
+    if (Game) {
+        Game.addEventListener("click", (event) => {
+            const target = event.currentTarget as HTMLButtonElement;
+            startGame(target);
+        })
+    }
+
 }
 let currentGame: Game = { theme: "code-vibe" };
 function updateGame(update: Partial<Game>) {
     currentGame = { ...currentGame, ...update };
     console.log("Game State:", currentGame);
+}
+
+function startGame() {
+    const play = document.getElementById('settingScreen');
+    if (play) {
+        play.style.display = "none";
+    }
+
+    const gameScreenRef = document.getElementById('gameScreen');
+    if (gameScreenRef) {
+        gameScreenRef.innerHTML = settingScreenTemplate();
+    }
+    
 }
 
 

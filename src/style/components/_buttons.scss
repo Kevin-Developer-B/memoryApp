@@ -85,16 +85,16 @@ button {
     }
 }
 
-.disabled {
-    background-color: gray;
-    opacity: 0.4;
-    cursor: default;
+// .disabled {
+//     background-color: gray;
+//     opacity: 0.4;
+//     cursor: default;
 
-    &:hover {
-        transform: scale(1);
+//     &:hover {
+//         transform: scale(1);
 
-        .btn-start__smart-display--rotate {
-            transform: rotate(0deg);
-        }
-    }
-}
+//         .btn-start__smart-display--rotate {
+//             transform: rotate(0deg);
+//         }
+//     }
+// }

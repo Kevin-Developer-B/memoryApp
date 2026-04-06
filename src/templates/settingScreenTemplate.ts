@@ -84,7 +84,7 @@ export function settingScreenTemplate() {
                             <span class="start-container__text">Player</span>
                             <img class="start-container__img" src="public/assets/img/across_line.png" alt="">
                             <span class="start-container__text">Board size</span>
-                            <button class="btn-start disabled">
+                            <button class="btn-start disabled" id="startGame">
                                 <img class="btn-start__smart-display btn-start__smart-display--rotate" src="public/assets/img/smart_display.png" alt="">
                                 <p class="btn-start__text">Start</p>
                             </button>
