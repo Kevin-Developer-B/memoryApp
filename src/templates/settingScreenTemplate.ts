@@ -8,55 +8,77 @@ export function settingScreenTemplate() {
                         <img class="underline-img" src="public/assets/img/Line 3.png" alt="">
                     </div>
                     <form id="settingForm">
-                        <div class="small-headline">
-                            <img src="public/assets/img/palette.png" alt="">
-                            <h3>Game themes</h3>
+                        <div>
+                            <div class="small-headline">
+                                <img src="public/assets/img/palette.png" alt="">
+                                <h3>Game themes</h3>
+                            </div>
+                        
+                            <label class="option">
+                                <input type="radio" name="theme" value="code vibes" checked>
+                                <span class="circle"></span>
+                                Code vibes theme
+                                <span class="line"></span>
+                                <img class="theme-img code-vibe-img" src="public/assets/img/Theme Visual.png" alt="">
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="theme" value="gaming">
+                                <span class="circle"></span>
+                                Gaming theme
+                                <span class="line"></span>
+                                <img class="theme-img code-vibe-img" src="public/assets/img/Theme_gaming.png" alt="">
+                            </label>
                         </div>
                         
-                        <label class="option">
-                            <input type="radio" name="theme" value="code vibes">
-                            <span class="circle"></span>
-                            Code vibes theme
-                            <span class="line"></span>
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="theme" value="gaming">
-                            <span class="circle"></span>
-                            Gaming theme
-                            <span class="line"></span>
-                        </label>
 
-                        <div class="small-headline">
-                            <img src="public/assets/img/chess.png" alt="">
-                            <h3>Choose player</h3>
-                        </div>
-                        
-                        <label class="option">
-                            <input type="radio" name="players" value="Blue">
-                            Blue
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="players" value="Orange">
-                            Orange
-                        </label>
 
-                        <div class="small-headline">
-                            <img src="public/assets/img/card_size.png" alt="">
-                            <h3>Board size</h3>
+                        <div>
+                            <div class="small-headline">
+                                <img src="public/assets/img/chess.png" alt="">
+                                <h3>Choose player</h3>
+                            </div>
+                        
+                            <label class="option">
+                                <input type="radio" name="players" value="Blue">
+                                <span class="circle"></span>
+                                Blue
+                                <span class="line"></span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="players" value="Orange">
+                                <span class="circle"></span>
+                                Orange
+                                <span class="line"></span>
+                            </label>
                         </div>
                         
-                        <label class="option">
-                            <input type="radio" name="cardSize" value="16">
-                            16 cards
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="cardSize" value="24">
-                            24 cards
-                        </label>
-                        <label class="option">
-                            <input type="radio" name="cardSize" value="32">
-                            32 cards
-                        </label>
+
+
+                        <div>
+                            <div class="small-headline">
+                                <img src="public/assets/img/card_size.png" alt="">
+                                <h3>Board size</h3>
+                            </div>
+                        
+                            <label class="option">
+                                <input type="radio" name="cardSize" value="16">
+                                <span class="circle"></span>
+                                16 cards
+                                <span class="line"></span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="cardSize" value="24">
+                                <span class="circle"></span>
+                                24 cards
+                                <span class="line"></span>
+                            </label>
+                            <label class="option">
+                                <input type="radio" name="cardSize" value="32">
+                                <span class="circle"></span>
+                                32 cards
+                                <span class="line"></span>
+                            </label>
+                        </div>
                     </form>
                 </div>
             </div>

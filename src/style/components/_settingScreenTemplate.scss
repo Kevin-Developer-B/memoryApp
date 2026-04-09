@@ -30,26 +30,80 @@
     }
 }
 
-.selection {
+form {
     position: relative;
-    width: 100%;
-    height: 539px;
     display: flex;
-    background-color:cadetblue;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 539px;
+    width: 100%;
 
-    &__box {
-        height: 100%;
-        width: 40%;
-        display: flex;
-        flex-direction: column;
-        padding: 0 0 0 10px;
+    .option input {
+        display: none;
     }
 
-    .theme-game {
-        width: 100%;
+    .option {
         display: flex;
-        justify-content: right;
-        align-items: end;
+        align-items: center;
+        cursor: pointer;
+        gap: 8px;
+        padding: 10px;
+        width: max-content;
+
+        .circle {
+            display: block;
+            background-image: url('../../../public/assets/img/circle.png');
+            height: 25px;
+            width: 25px;
+        }
+
+        &:hover {
+            .circle {
+                background-image: url('../../../public/assets/img/circle_point.png');
+            }
+
+            .line {
+                background-image: url('../../../public/assets/img/small_line.png');
+                background-size: contain;
+                background-repeat: no-repeat;
+                height: 15px;
+                width: 41px;
+            }
+
+            .theme-img {
+                display: block;
+            }
+
+            &:hover .theme-img {
+                display: block;
+                z-index: 2;
+            }
+        }
+
+        & input:checked+.circle {
+            background-image: url('../../../public/assets/img/circle_point.png');
+        }
+
+        & input:checked~.line {
+            background-image: url('../../../public/assets/img/small_line.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            height: 15px;
+            width: 41px;
+        }
+
+        & input:checked~.theme-img {
+            display: block;
+        }
+
+    }
+
+
+    .theme-img {
+        display: none;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 }
 
@@ -57,6 +111,45 @@
     display: flex;
     align-items: center;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// .selection {
+//     position: relative;
+//     width: 100%;
+//     height: 539px;
+//     display: flex;
+//     background-color:cadetblue;
+
+//     &__box {
+//         height: 100%;
+//         width: 40%;
+//         display: flex;
+//         flex-direction: column;
+//         padding: 0 0 0 10px;
+//     }
+
+//     .theme-game {
+//         width: 100%;
+//         display: flex;
+//         justify-content: right;
+//         align-items: end;
+//     }
+// }
 
 // .choose-box {
 //     height: 100%;
