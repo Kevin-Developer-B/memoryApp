@@ -66,6 +66,20 @@ button {
         }
     }
 
+    &--disabled {
+        background-color: gray;
+        opacity: 0.4;
+        cursor: default;
+
+        &:hover {
+            transform: scale(1);
+
+            .btn-start__smart-display--rotate {
+                transform: rotate(0deg);
+            }
+        }
+    }
+
     .btn-start__smart-display {
         background-image: url('../../../public/assets/img/smart_display.png');
         height: 24px;
@@ -84,17 +98,3 @@ button {
         line-height: 100%;
     }
 }
-
-// .disabled {
-//     background-color: gray;
-//     opacity: 0.4;
-//     cursor: default;
-
-//     &:hover {
-//         transform: scale(1);
-
-//         .btn-start__smart-display--rotate {
-//             transform: rotate(0deg);
-//         }
-//     }
-// }

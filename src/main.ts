@@ -1,6 +1,7 @@
 import './style/style.scss'
 import { startScreeTemplate } from './templates/startScreenTemplate';
 import { settingScreenTemplate } from './templates/settingScreenTemplate';
+import { gameScreenTemplate } from './templates/gameScreenTemplate';
 
 interface Game {
     theme: string,
@@ -106,7 +107,7 @@ function settingScreen() {
     if (Game) {
         Game.addEventListener("click", (event) => {
             const target = event.currentTarget as HTMLButtonElement;
-            startGame(target);
+            startGame();
         })
     }
 
@@ -125,7 +126,7 @@ function startGame() {
 
     const gameScreenRef = document.getElementById('gameScreen');
     if (gameScreenRef) {
-        gameScreenRef.innerHTML = settingScreenTemplate();
+        gameScreenRef.innerHTML = gameScreenTemplate();
     }
     
 }
