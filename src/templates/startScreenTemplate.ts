@@ -5,7 +5,7 @@ export function startScreeTemplate() {
                 <div class="start-sceen-box bg-yellow-controller">
                     <div class="headline">
                         <span class="headline__h2">It's play Time</span>
-                        <span class="headline__h1">Ready to Play?</span>
+                        <span class="headline__h1">Ready to play?</span>
                     </div>
                     <button class="btn" id="playBtn">
                         <img class="btn__img--rotate" src="public/assets/img/stadia_controller.png" alt="arrow-left">

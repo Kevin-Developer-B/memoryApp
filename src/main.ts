@@ -22,6 +22,7 @@ function init() {
 }
 
 function settingScreen() {
+
     const play = document.getElementById('startScreen');
     if (play) {
         play.style.display = "none";
@@ -30,92 +31,58 @@ function settingScreen() {
     const settingScreenRef = document.getElementById('settingScreen');
     if (settingScreenRef) {
         settingScreenRef.innerHTML = settingScreenTemplate();
+        updateThemePreview();
     }
 
-    const themes = document.querySelectorAll(".game-theme");
-    if (themes.length > 0) {
-        themes[0].classList.add("active");
-    }
-    themes.forEach(btn => {
-        btn.addEventListener('click', () => {
-            themes.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    const themeInputs = document.querySelectorAll('input[name="theme"]');
+    const playerInputs = document.querySelectorAll('input[name="players"]');
+    const cardSizeInputs = document.querySelectorAll('input[name="cardSize"]');
+    const outputTheme = document.getElementById("selectedTheme") as HTMLSpanElement;
+    const outputPlayer = document.getElementById("selectedPlayer") as HTMLSpanElement;
+    const outputSize = document.getElementById("selectedSize") as HTMLSpanElement;
+
+    themeInputs.forEach(input => {
+        input.addEventListener("change", () => {
+            const selected = document.querySelector('input[name="theme"]:checked') as HTMLInputElement;
+            outputTheme.textContent = selected.value;
         });
     });
 
-    const player = document.querySelectorAll(".player");
-    player.forEach(btn => {
-        btn.addEventListener('click', () => {
-            player.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    playerInputs.forEach(input => {
+        input.addEventListener("change", () => {
+            const selected = document.querySelector('input[name="players"]:checked') as HTMLInputElement;
+            outputPlayer.textContent = selected.value;
+
         });
     });
 
-    const cardSize = document.querySelectorAll(".cardSize");
-    cardSize.forEach(btn => {
-        btn.addEventListener('click', () => {
-            cardSize.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    cardSizeInputs.forEach(input => {
+        input.addEventListener("change", () => {
+            const selected = document.querySelector('input[name="cardSize"]:checked') as HTMLInputElement;
+            outputSize.textContent = selected.value;
         });
     });
 
-    let currentGame: Game = { theme: "code-vibe" };
-    updateGame(currentGame);
-    document.querySelectorAll(".game-theme").forEach((button) => {
-        button.addEventListener("click", (event) => {
-            const target = event.currentTarget as HTMLButtonElement;
-            let theme = "";
-            if (target.id === "theme1") {
-                theme = "code-vibe";
-            } else if (target.id === "theme2") {
-                theme = "gaming";
-            }
-            currentGame = { theme };
-            updateGame(currentGame);
-        });
+    document.querySelectorAll('input[type="radio"]').forEach(input => {
+        input.addEventListener("change", updatePreview);
     });
-
-    document.querySelectorAll(".player").forEach((button) => {
-        button.addEventListener("click", (event) => {
-            const target = event.currentTarget as HTMLButtonElement;
-            let playerColor = "";
-            if (target.id === "playerBlue") {
-                playerColor = "Blue";
-            } else if (target.id === "playerOrange") {
-                playerColor = "Orange";
-            }
-            updateGame({ playerColor });
-        });
-    });
-
-    document.querySelectorAll(".cardSize").forEach((button) => {
-        button.addEventListener("click", (event) => {
-            const target = event.currentTarget as HTMLButtonElement;
-            let cardSize = 0;
-            if (target.id === "size16") {
-                cardSize = 16;
-            } else if (target.id === "size24") {
-                cardSize = 24;
-            } else if (target.id === "size36") {
-                cardSize = 36;
-            }
-            updateGame({ cardSize });
-        });
-    });
-
-    const Game = document.getElementById("startGame");
-    if (Game) {
-        Game.addEventListener("click", (event) => {
-            const target = event.currentTarget as HTMLButtonElement;
-            startGame();
-        })
-    }
 
 }
-let currentGame: Game = { theme: "code-vibe" };
-function updateGame(update: Partial<Game>) {
-    currentGame = { ...currentGame, ...update };
-    console.log("Game State:", currentGame);
+
+function updateThemePreview() {
+    const outputTheme = document.getElementById("selectedTheme") as HTMLSpanElement;
+    const selected = document.querySelector('input[name="theme"]:checked') as HTMLInputElement;
+    outputTheme.textContent = selected.value;
+}
+
+
+function updatePreview() {
+    updateThemePreview()
+    const theme = (document.querySelector('input[name="theme"]:checked') as HTMLInputElement)?.value;
+    const players = (document.querySelector('input[name="players"]:checked') as HTMLInputElement)?.value;
+    const size = (document.querySelector('input[name="cardSize"]:checked') as HTMLInputElement)?.value;
+
+    console.log({ theme, players, size });
 }
 
 function startGame() {
@@ -128,7 +95,7 @@ function startGame() {
     if (gameScreenRef) {
         gameScreenRef.innerHTML = gameScreenTemplate();
     }
-    
+
 }
 
 

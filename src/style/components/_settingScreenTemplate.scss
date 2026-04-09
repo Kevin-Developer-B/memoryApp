@@ -2,6 +2,7 @@
     height: 100vh;
     width: 100vw;
     background-color: #FFFFFF;
+    font-family: 'Almarai';
 }
 
 .setting-screen-container {
@@ -14,15 +15,18 @@
     justify-content: center;
 }
 
-.headline {
+.setting__headline {
     display: flex;
+    flex-direction: column;
     align-items: center;
+    margin-bottom: 32px;
 
     h2 {
         color: black;
         font-size: 54px;
         font-weight: 700;
         line-height: 100%;
+        font-family: 'RedRose';
     }
 
     .underline-img {
@@ -38,6 +42,13 @@ form {
     height: 539px;
     width: 100%;
 
+    .small-headline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Almarai';
+    }
+
     .option input {
         display: none;
     }
@@ -47,7 +58,7 @@ form {
         align-items: center;
         cursor: pointer;
         gap: 8px;
-        padding: 10px;
+        padding: 10px 44px;
         width: max-content;
 
         .circle {
@@ -105,11 +116,6 @@ form {
         top: 0;
         right: 0;
     }
-}
-
-.small-headline {
-    display: flex;
-    align-items: center;
 }
 
 

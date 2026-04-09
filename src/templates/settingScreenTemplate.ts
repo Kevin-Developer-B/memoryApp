@@ -3,7 +3,7 @@ export function settingScreenTemplate() {
         <div class="setting-screen-box" id="settingScreen">
             <div class="container">
                 <div class="setting-screen-container">
-                    <div class="headline">
+                    <div class="setting__headline">
                         <h2>Settings</h2>
                         <img class="underline-img" src="public/assets/img/Line 3.png" alt="">
                     </div>
@@ -39,13 +39,13 @@ export function settingScreenTemplate() {
                             </div>
                         
                             <label class="option">
-                                <input type="radio" name="players" value="Blue">
+                                <input type="radio" name="players" value="Blue Player">
                                 <span class="circle"></span>
                                 Blue
                                 <span class="line"></span>
                             </label>
                             <label class="option">
-                                <input type="radio" name="players" value="Orange">
+                                <input type="radio" name="players" value="Orange Player">
                                 <span class="circle"></span>
                                 Orange
                                 <span class="line"></span>
@@ -61,23 +61,36 @@ export function settingScreenTemplate() {
                             </div>
                         
                             <label class="option">
-                                <input type="radio" name="cardSize" value="16">
+                                <input type="radio" name="cardSize" value="Board-16 Cards">
                                 <span class="circle"></span>
                                 16 cards
                                 <span class="line"></span>
                             </label>
                             <label class="option">
-                                <input type="radio" name="cardSize" value="24">
+                                <input type="radio" name="cardSize" value="Board-24 Cards">
                                 <span class="circle"></span>
                                 24 cards
                                 <span class="line"></span>
                             </label>
                             <label class="option">
-                                <input type="radio" name="cardSize" value="32">
+                                <input type="radio" name="cardSize" value="Board-32 Cards">
                                 <span class="circle"></span>
                                 32 cards
                                 <span class="line"></span>
                             </label>
+                        </div>
+
+                        <div class="start-container" id="preview">
+                            <span class="start-container__text" id="selectedTheme">Game theme</span>
+                            <img class="start-container__img" src="public/assets/img/across_line.png" alt="">
+                            <span class="start-container__text" id="selectedPlayer">Player</span>
+                            <img class="start-container__img" src="public/assets/img/across_line.png" alt="">
+                            <span class="start-container__text" id="selectedSize">Board size</span>
+                            <button class="btn-start btn-start--disabled" id="startGame" disabled>
+                                <img class="btn-start__smart-display btn-start__smart-display--rotate"
+                                    src="public/assets/img/smart_display.png" alt="">
+                                <p class="btn-start__text">Start</p>
+                            </button>
                         </div>
                     </form>
                 </div>
