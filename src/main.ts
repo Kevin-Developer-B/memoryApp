@@ -2,12 +2,12 @@ import './style/style.scss'
 import { startScreeTemplate } from './templates/startScreenTemplate';
 import { settingScreenTemplate } from './templates/settingScreenTemplate';
 import { gameScreenTemplate } from './templates/gameScreenTemplate';
+import { Game } from './interfaces';
 
-interface Game {
-    theme: string,
-    playerColor?: string,
-    cardSize?: number
-}
+let gameState: Game = {
+    theme: "code vibes",
+    cardSize: 16
+};
 
 init()
 
@@ -37,29 +37,33 @@ function settingScreen() {
     const themeInputs = document.querySelectorAll('input[name="theme"]');
     const playerInputs = document.querySelectorAll('input[name="players"]');
     const cardSizeInputs = document.querySelectorAll('input[name="cardSize"]');
-    const outputTheme = document.getElementById("selectedTheme") as HTMLSpanElement;
-    const outputPlayer = document.getElementById("selectedPlayer") as HTMLSpanElement;
-    const outputSize = document.getElementById("selectedSize") as HTMLSpanElement;
 
     themeInputs.forEach(input => {
         input.addEventListener("change", () => {
             const selected = document.querySelector('input[name="theme"]:checked') as HTMLInputElement;
-            outputTheme.textContent = selected.value;
+            gameState.theme = selected.value as Game["theme"];
+            renderPreviewFromState();
         });
     });
 
     playerInputs.forEach(input => {
         input.addEventListener("change", () => {
             const selected = document.querySelector('input[name="players"]:checked') as HTMLInputElement;
-            outputPlayer.textContent = selected.value;
+            gameState.playerColor = selected.value as Game["playerColor"];
+            renderPreviewFromState();
 
         });
     });
 
     cardSizeInputs.forEach(input => {
         input.addEventListener("change", () => {
-            const selected = document.querySelector('input[name="cardSize"]:checked') as HTMLInputElement;
-            outputSize.textContent = selected.value;
+            const selected = document.querySelector('input[name="players"]:checked') as HTMLInputElement;
+            gameState.cardSize = Number(selected.value) as Game["cardSize"];
+            // if (input === 16 || value === 24 || value === 32) {
+
+            // }
+
+            renderPreviewFromState();
         });
     });
 
@@ -73,7 +77,7 @@ function settingScreen() {
 
     const startButton = document.getElementById('startGame');
     if (startButton) {
-        startButton.addEventListener ("click", startGame);
+        startButton.addEventListener("click", startGame);
     }
 
 }
@@ -92,6 +96,20 @@ function updatePreview() {
     const size = (document.querySelector('input[name="cardSize"]:checked') as HTMLInputElement)?.value;
 
     console.log({ theme, players, size });
+}
+
+function renderPreviewFromState() {
+    const outputTheme = document.getElementById("selectedTheme") as HTMLSpanElement;
+    const outputPlayer = document.getElementById("selectedPlayer") as HTMLSpanElement;
+    const outputSize = document.getElementById("selectedSize") as HTMLSpanElement;
+
+    outputTheme.textContent = gameState.theme;
+    outputPlayer.textContent = gameState.playerColor ?? "Player";
+    if (outputSize) {
+        outputSize.textContent = gameState.cardSize ? `Board-${gameState.cardSize} size` : "Board size";
+    }
+
+
 }
 
 function updateStartButtonState() {
