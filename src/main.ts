@@ -64,7 +64,11 @@ function settingScreen() {
     });
 
     document.querySelectorAll('input[type="radio"]').forEach(input => {
-        input.addEventListener("change", updatePreview);
+        input.addEventListener("change", () => {
+            updatePreview();
+            updateStartButtonState();
+        });
+
     });
 
 }
@@ -83,6 +87,21 @@ function updatePreview() {
     const size = (document.querySelector('input[name="cardSize"]:checked') as HTMLInputElement)?.value;
 
     console.log({ theme, players, size });
+}
+
+function updateStartButtonState() {
+    const players = document.querySelector('input[name="players"]:checked');
+    const size = document.querySelector('input[name="cardSize"]:checked')
+    const button = document.getElementById("startGame") as HTMLButtonElement;
+
+    if (players && size) {
+
+        button.disabled = false;
+        button.classList.remove("btn-start--disabled")
+    } else {
+        button.disabled = true;
+        button.classList.add("btn-start--disabled")
+    }
 }
 
 function startGame() {
