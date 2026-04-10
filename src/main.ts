@@ -71,6 +71,11 @@ function settingScreen() {
 
     });
 
+    const startButton = document.getElementById('startGame');
+    if (startButton) {
+        startButton.addEventListener ("click", startGame);
+    }
+
 }
 
 function updateThemePreview() {
