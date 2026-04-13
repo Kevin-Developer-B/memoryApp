@@ -15,7 +15,7 @@ export function settingScreenTemplate() {
                             </div>
                         
                             <label class="option">
-                                <input type="radio" name="theme" value="code vibes" checked>
+                                <input type="radio" name="theme" value="codeVibes" checked>
                                 <span class="circle"></span>
                                 Code vibes theme
                                 <span class="line"></span>
@@ -61,19 +61,19 @@ export function settingScreenTemplate() {
                             </div>
                         
                             <label class="option">
-                                <input type="radio" name="cardSize" value="Board-16 Cards">
+                                <input type="radio" name="cardSize" value="16">
                                 <span class="circle"></span>
                                 16 cards
                                 <span class="line"></span>
                             </label>
                             <label class="option">
-                                <input type="radio" name="cardSize" value="Board-24 Cards">
+                                <input type="radio" name="cardSize" value="24">
                                 <span class="circle"></span>
                                 24 cards
                                 <span class="line"></span>
                             </label>
                             <label class="option">
-                                <input type="radio" name="cardSize" value="Board-32 Cards">
+                                <input type="radio" name="cardSize" value="32">
                                 <span class="circle"></span>
                                 32 cards
                                 <span class="line"></span>

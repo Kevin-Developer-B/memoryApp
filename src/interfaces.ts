@@ -1,5 +1,5 @@
 export interface Game {
-    theme: "code vibes" | "gaming",
+    theme: "codeVibes" | "gaming",
     playerColor?: "blue" | "orange",
     cardSize?: 16 | 24 | 32
 }
