@@ -1,6 +1,6 @@
 export function gameScreenTemplate() {
     return `
-    <div>
+    <div class="body-box">
         <div class="container">
                 <header>
                     <div class="show">

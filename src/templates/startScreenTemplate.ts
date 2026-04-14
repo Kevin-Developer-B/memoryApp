@@ -1,6 +1,6 @@
 export function startScreeTemplate() {
     return `
-        <div>
+        <div class="body-box">
             <div class="container">
                 <div class="start-sceen-box bg-yellow-controller">
                     <div class="headline">

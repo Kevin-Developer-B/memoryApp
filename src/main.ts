@@ -8,7 +8,7 @@ let gameState: Game = {
     theme: "codeVibes",
 };
 
-init()
+startGame()
 
 function init() {
     const startScreenRef = document.getElementById('startScreen')!;
@@ -21,9 +21,14 @@ function init() {
 }
 
 function settingScreen() {
-    const play = document.getElementById('startScreen');
-    if (play) {
-        play.style.display = "none";
+    const start = document.getElementById('startScreen');
+    const setting = document.getElementById('settingScreen');
+    const game = document.getElementById('gameScreen');
+    
+    if (start && setting && game) {
+        start.style.display = "none";
+        setting.style.display = "flex";
+        game.style.display = "none";
     }
 
     const settingScreenRef = document.getElementById('settingScreen');
@@ -123,8 +128,11 @@ function updateStartButtonState() {
 
 function startGame() {
     const play = document.getElementById('settingScreen');
-    if (play) {
+    const game = document.getElementById('gameScreen');
+
+    if (play && game) {
         play.style.display = "none";
+        game.style.display = "flex";
     }
 
     const gameScreenRef = document.getElementById('gameScreen');
