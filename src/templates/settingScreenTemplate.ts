@@ -39,13 +39,13 @@ export function settingScreenTemplate() {
                             </div>
                         
                             <label class="option">
-                                <input type="radio" name="players" value="Blue Player">
+                                <input type="radio" name="players" value="blue">
                                 <span class="circle"></span>
                                 Blue
                                 <span class="line"></span>
                             </label>
                             <label class="option">
-                                <input type="radio" name="players" value="Orange Player">
+                                <input type="radio" name="players" value="orange">
                                 <span class="circle"></span>
                                 Orange
                                 <span class="line"></span>
@@ -73,9 +73,9 @@ export function settingScreenTemplate() {
                                 <span class="line"></span>
                             </label>
                             <label class="option">
-                                <input type="radio" name="cardSize" value="32">
+                                <input type="radio" name="cardSize" value="36">
                                 <span class="circle"></span>
-                                32 cards
+                                36 cards
                                 <span class="line"></span>
                             </label>
                         </div>

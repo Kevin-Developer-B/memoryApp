@@ -12,3 +12,7 @@
     animation: fadeOut $time $ease forwards;
 }
 
+@mixin shin-in($time: 0.5s, $ease: ease-in) {
+    animation: shinIn $time $ease forwards;
+}
+

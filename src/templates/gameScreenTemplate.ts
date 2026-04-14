@@ -19,13 +19,15 @@ export function gameScreenTemplate() {
                         <div class="show__box show__current-player">
                             <div class="current-player__box">
                                 <span class="current-player">Current player:</span>
-                                <span class="current-label"></span>
+                                <span id="color"></span>
                             </div>
                         </div>
                     </div>
                     <button class="exit_btn" id="selectionBtn"></button>
                 </header>
-                <section id="field"></section>
+                <section class="box">
+                    <div id="field" class="field"></div>
+                </section>
         </div>
     </div>
     <div class="Overlay" id="overlay">

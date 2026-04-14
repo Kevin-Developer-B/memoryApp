@@ -8,6 +8,17 @@ let gameState: Game = {
     theme: "codeVibes",
 };
 
+let matchState = {
+    currentPlayer: gameState.playerColor
+}
+
+type Card = {
+    id: number;
+    value: string;
+    isFlipped: boolean;
+    isMatched: boolean;
+}
+
 startGame()
 
 function init() {
@@ -107,8 +118,6 @@ function renderPreviewFromState() {
     if (outputSize) {
         outputSize.textContent = gameState.cardSize ? `Board-${gameState.cardSize} size` : "Board size";
     }
-
-
 }
 
 function updateStartButtonState() {
@@ -127,6 +136,7 @@ function updateStartButtonState() {
 }
 
 function startGame() {
+    matchState.currentPlayer = gameState.playerColor
     const play = document.getElementById('settingScreen');
     const game = document.getElementById('gameScreen');
 
@@ -141,31 +151,110 @@ function startGame() {
         applyTheme();
     }
 
-    const fieldRef = document.getElementById("field");
-    if (fieldRef) {
-        let size = gameState.cardSize ?? 16;
-
-        for (let i = 0; i < size; i++) {
-            const card = document.createElement("button");
-            card.classList.add("card");
-            card.innerHTML = `
-                <div class="card__inner">
-                    <div class="card__face card__face--back"></div>
-                    <div class="card__face card__face--front"></div>
-                </div>
-                `;
-            fieldRef.appendChild(card);
-        }
-
-        fieldRef.addEventListener("click", e => {
-            const card = (e.target as HTMLElement).closest(".card") as HTMLButtonElement
-            if (card) {
-                card.classList.toggle("is-flipped")
-            }
-        })
+    
+    let color = document.getElementById('color');
+    if (color && matchState.currentPlayer === "blue") {
+        color.classList.add("blue-label")
+    } else {
+        color?.classList.add("orange-label")
     }
 
 
+
+    let size = gameState.cardSize ?? 16;
+    let cards: Card[] = shuffle(createPairs(size));
+    const fieldRef = document.getElementById("field");
+    let firstCard: HTMLButtonElement | null = null;
+    let secondCard: HTMLButtonElement | null = null;
+    let lockBoard = false;
+
+    if (fieldRef) {
+
+        for (let i = 0; i < cards.length; i++) {
+            const card = cards[i];
+
+            const button = document.createElement("button");
+            button.classList.add("card");
+            button.dataset.id = card.id.toString();
+            button.dataset.value = card.value;
+
+            button.innerHTML = `
+                    <div class="card__inner">
+                        <div class="card__face card__face--back"></div>
+                        <div class="card__face card__face--front">
+                            <img src="../../../public/assets/img/Themes/CodeVibe/${card.value}.png" alt="${card.value}">
+                        </div>
+                    </div>
+                `;
+
+            fieldRef.appendChild(button);
+        }
+        fieldRef.classList.remove("grid-16", "grid-24", "grid-32");
+        if (size === 16) fieldRef.classList.add("grid-16");
+        if (size === 24) fieldRef.classList.add("grid-24");
+        if (size === 36) fieldRef.classList.add("grid-32");
+
+        fieldRef.addEventListener("click", (e) => {
+            const target = e.target as HTMLElement;
+            const card = target.closest(".card") as HTMLButtonElement | null;
+
+            if (!card) return;
+            if (lockBoard) return;
+            if (card.classList.contains("is-flipped")) return;
+
+            flipCard(card);
+
+            if (!firstCard) {
+                firstCard = card;
+                return;
+            }
+
+            secondCard = card;
+
+            checkMatch();
+        });
+    }
+
+    function flipCard(card: HTMLButtonElement) {
+        card.classList.add("is-flipped");
+    }
+
+    function checkMatch() {
+        if (!firstCard || !secondCard) return;
+
+        const isMatch =
+            firstCard.dataset.value === secondCard.dataset.value;
+
+        if (isMatch) {
+            disableCards();
+        } else {
+            unflipCards();
+        }
+    }
+
+    function disableCards() {
+        firstCard?.classList.add("matched");
+        secondCard?.classList.add("matched");
+
+        resetBoard();
+    }
+
+    function unflipCards() {
+        lockBoard = true;
+
+        setTimeout(() => {
+            firstCard?.classList.remove("is-flipped");
+            secondCard?.classList.remove("is-flipped");
+
+            resetBoard();
+        }, 800);
+    }
+
+    function resetBoard() {
+        firstCard = null;
+        secondCard = null;
+        lockBoard = false;
+    }
 
     function applyTheme() {
         let theme = document.getElementById("gameScreen");
@@ -204,7 +293,36 @@ function startGame() {
             }, 500);
         }
     }
+
+
+    function createPairs(size: number): Card[] {
+        const pairCount = size / 2;
+        const baseCards: Card[] = [];
+
+        for (let i = 0; i < pairCount; i++) {
+            const cardA: Card = {
+                id: i * 2,
+                value: `card-${i}`,
+                isFlipped: false,
+                isMatched: false
+            };
+
+            const cardB: Card = {
+                id: i * 2 + 1,
+                value: `card-${i}`,
+                isFlipped: false,
+                isMatched: false
+            };
+
+            baseCards.push(cardA, cardB);
+        }
+
+        return baseCards;
+    }
+
+    function shuffle(cards: Card[]): Card[] {
+        return cards
+            .map(c => ({ ...c }))
+            .sort(() => Math.random() - 0.5);
+    }
 }
-
-
-

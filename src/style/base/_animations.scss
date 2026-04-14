@@ -21,3 +21,13 @@
         transform: translateY(-200%);
     }
 }
+
+@keyframes shinIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
