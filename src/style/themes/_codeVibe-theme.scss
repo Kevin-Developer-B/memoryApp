@@ -1,5 +1,8 @@
+@use '../abstract/mixin';
+
 .codeVibes-theme {
     background-color: rgb(47, 48, 48);
+    font-family: 'RedRose';
 
     .container {
         padding: 40px 96px;
@@ -12,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    cursor: default;
 
     &__box {
         height: 100%;
@@ -56,6 +60,17 @@
         justify-content: end;
         align-items: end;
     }
+
+    .current-player__box {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+
+        & {
+            font-size: 26px;
+            line-height: 100%;
+        }
+    }
 }
 
 .current-label {
@@ -64,4 +79,72 @@
     background-image: url('../../../public/assets/img/label_blue.png');
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.exit_btn {
+    background-image: url('./../../../public/assets/img/exit_btn.png');
+    height: 62px;
+    width: 207px;
+
+    &:hover {
+        background-image: url('./../../../public/assets/img/exit_btn-hover.png');
+    }
+}
+
+
+
+.Overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+
+    &.open {
+        @include mixin.fade-in;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &.closing {
+        @include mixin.fade-out;
+    }
+}
+
+.PopUp {
+    height: 270px;
+    width: 539px;
+    background-color: #FFFFFF;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3 {
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 40px;
+        text-align: center;
+        letter-spacing: 1px;
+    }
+
+    &__btn-box {
+        height: 57px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    &__text {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 100%;
+    }
 }

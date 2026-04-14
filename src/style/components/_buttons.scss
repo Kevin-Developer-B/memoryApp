@@ -98,3 +98,29 @@ button {
         line-height: 100%;
     }
 }
+
+.popUp-btn {
+    padding: 16px 24px;
+
+    &--back {
+        background-color: #66CFBC;
+        border: 2px solid #4DD5BC;
+        transition: 300ms ease-out;
+        color: #FFFFFF;
+
+        &:hover {
+            background-color: #66cfbcb9;
+            box-shadow: inset 0 0 1px 1px #4DD5BC;
+        }
+    }
+
+    &--exit {
+        border: 2px solid #4DD5BC;
+        transition: 256ms ease-out;
+
+        &:hover {
+            background-color: #86E9D624;
+            box-shadow: inset 0 0 1px 1px #4DD5BC;
+        }
+    }
+}
