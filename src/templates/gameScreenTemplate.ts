@@ -25,14 +25,7 @@ export function gameScreenTemplate() {
                     </div>
                     <button class="exit_btn" id="selectionBtn"></button>
                 </header>
-                <section id="field">
-                    <button class="card">
-                        <div class="card__inner">
-                            <div class="card__face card__face--back"></div>
-                            <div class="card__face card__face--front"></div>
-                        </div>
-                    </button>
-                </section>
+                <section id="field"></section>
         </div>
     </div>
     <div class="Overlay" id="overlay">

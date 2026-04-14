@@ -24,7 +24,7 @@ function settingScreen() {
     const start = document.getElementById('startScreen');
     const setting = document.getElementById('settingScreen');
     const game = document.getElementById('gameScreen');
-    
+
     if (start && setting && game) {
         start.style.display = "none";
         setting.style.display = "flex";
@@ -143,6 +143,20 @@ function startGame() {
 
     const fieldRef = document.getElementById("field");
     if (fieldRef) {
+        let size = gameState.cardSize ?? 16;
+
+        for (let i = 0; i < size; i++) {
+            const card = document.createElement("button");
+            card.classList.add("card");
+            card.innerHTML = `
+                <div class="card__inner">
+                    <div class="card__face card__face--back"></div>
+                    <div class="card__face card__face--front"></div>
+                </div>
+                `;
+            fieldRef.appendChild(card);
+        }
+
         fieldRef.addEventListener("click", e => {
             const card = (e.target as HTMLElement).closest(".card") as HTMLButtonElement
             if (card) {
@@ -150,6 +164,8 @@ function startGame() {
             }
         })
     }
+
+
 
     function applyTheme() {
         let theme = document.getElementById("gameScreen");
