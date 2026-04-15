@@ -1,3 +1,5 @@
+@use './../abstract/mixin';
+
 .endScreen {
     height: 100%;
     min-height: 100vh;
@@ -77,5 +79,77 @@
     img {
         height: 20px;
         width: 24px;
+    }
+}
+
+.winnerOverlay {
+    @include mixin.fade-in(3s);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(47, 48, 48);
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confetti {
+    position: absolute;
+    top: -32px;
+    left: 0;
+    background-image: url('./../../../public/assets/img/Confetti.png');
+    height: 359px;
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.winner {
+    height: 573px;
+    width: 522px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 150px;
+    font-family: "RedRose";
+
+    &__headline {
+        height: 133px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+
+        h3 {
+            font-size: 40px;
+            font-weight: 400;
+            line-height: 100%;
+        }
+
+        h2 {
+            font-size: 60px;
+            font-weight: 700;
+            line-height: 100%;
+        }
+    }
+
+    &__blue {
+        // opacity: 0;
+        background-image: url('../../../public/assets/img/PlayerBlue.png');
+        height: 250px;
+        width: 200px;
+    }
+
+    &__orange {
+        // opacity: 0;
+        background-image: url('../../../public/assets/img/PlayerOrange.png');
+        height: 250px;
+        width: 200px;
     }
 }

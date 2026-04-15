@@ -15,6 +15,8 @@ let matchState = {
     orangeScore: 0
 }
 
+let cards: Card[] = [];
+
 type Card = {
     id: number;
     value: string;
@@ -36,16 +38,16 @@ function init() {
 
 function settingScreen() {
     const start = document.getElementById('startScreen');
-    const setting = document.getElementById('settingScreen');
+    const settingScreenRef = document.getElementById('settingScreen');
     const game = document.getElementById('gameScreen');
 
-    if (start && setting && game) {
+    if (start && settingScreenRef && game) {
         start.style.display = "none";
-        setting.style.display = "flex";
+        settingScreenRef.style.display = "flex";
         game.style.display = "none";
     }
 
-    const settingScreenRef = document.getElementById('settingScreen');
+
     if (settingScreenRef) {
         settingScreenRef.innerHTML = settingScreenTemplate();
         updateThemePreview();
@@ -143,6 +145,7 @@ function startGame() {
     const play = document.getElementById('settingScreen');
     const game = document.getElementById('gameScreen');
 
+
     if (play && game) {
         play.style.display = "none";
         game.style.display = "flex";
@@ -158,7 +161,7 @@ function startGame() {
     }
 
     let size = gameState.cardSize ?? 16;
-    let cards: Card[] = shuffle(createPairs(size));
+    cards = shuffle(createPairs(size));
     const fieldRef = document.getElementById("field");
     let firstCard: HTMLButtonElement | null = null;
     let secondCard: HTMLButtonElement | null = null;
@@ -224,12 +227,20 @@ function startGame() {
         if (isMatch) {
             disableCards();
             endTurn(isMatch);
+            checkGameEnd();
         } else {
             unflipCards();
         }
     }
 
     function disableCards() {
+        if (!firstCard || !secondCard) return;
+        const firstId = Number(firstCard.dataset.id);
+        const secondId = Number(secondCard.dataset.id);
+        const first = cards.find(card => card.id === firstId);
+        const second = cards.find(card => card.id === secondId);
+        if (first) first.isMatched = true;
+        if (second) second.isMatched = true;
         firstCard?.classList.add("matched");
         secondCard?.classList.add("matched");
     }
@@ -260,7 +271,7 @@ function startGame() {
             }
             displayScore();
         } else {
-            matchState.currentPlayer = matchState.currentPlayer === "blue" ? "orange" : "blue" ;
+            matchState.currentPlayer = matchState.currentPlayer === "blue" ? "orange" : "blue";
         }
         displayCurrentPlayer();
         resetBoard();
@@ -370,9 +381,53 @@ function startGame() {
     }
 }
 
+function checkGameEnd() {
+    if (cards.length === 0) return;
+
+    if (cards.every(card => card.isMatched)) {
+        console.log(cards);
+        endScreen();
+    }
+
+}
+
 function endScreen() {
-    const endScreenRef = document.getElementById('settingScreen');
-    if (endScreenRef) {
+    const endScreenRef = document.getElementById('endScreen');
+    const game = document.getElementById('gameScreen');
+    if (endScreenRef && game) {
         endScreenRef.innerHTML = endScreenTemplate();
+        game.style.display = "none";
+        displayEndScore();
+        displayWinner();
+    };
+
+    function displayEndScore() {
+        const blue = document.getElementById("endBlueScore");
+        const orange = document.getElementById("endOrangeScore");
+
+        if (blue) {
+            blue.textContent = matchState.blueScore.toString();
+        }
+
+        if (orange) {
+            orange.textContent = matchState.orangeScore.toString();
+        }
+    }
+
+    function displayWinner() {
+        const winnerEl = document.getElementById("winnerScreen");
+        const winnerPlayer = document.getElementById("winnerPlayer");
+        if (!winnerEl) return;
+
+        if (winnerPlayer && matchState.blueScore > matchState.orangeScore) {
+            winnerPlayer.textContent = "BLUE PLAYER";
+            winnerPlayer.classList.add("winner__blue");
+        } else if (winnerPlayer && matchState.orangeScore > matchState.blueScore) {
+            winnerPlayer.textContent = "ORANGE PLAYER";
+            winnerPlayer.classList.add("winner__orange");
+        } else {
+            winnerPlayer!.textContent = "DRAW";
+            winnerPlayer!.classList.remove("winner__orange");
+        }
     }
 }
