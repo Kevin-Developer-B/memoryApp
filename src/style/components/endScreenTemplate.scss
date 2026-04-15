@@ -1,0 +1,81 @@
+.endScreen {
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "RedRose";
+
+    &__box {
+        height: 367px;
+        width: 990px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.gameover-img {
+    background-image: url('../../../public/assets/img/Themes/CodeVibe/game_over-codeVibeTheme.png');
+    height: 125px;
+    width: 990px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.score {
+    height: 118PX;
+    width: 324PX;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &__text {
+        font-size: 26px;
+        line-height: 100%;
+        color: #FFFFFF;
+        text-align: center;
+    }
+
+    &__board {
+        height: 62px;
+        width: 100%;
+        padding: 17px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+
+        &--bg {
+            background-color: #86E9D633;
+        }
+    }
+}
+
+.player {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 100%;
+
+    &--blue {
+        color: #2BB1FF;
+    }
+
+    &--orange {
+        color: #F58E39;
+    }
+
+    img {
+        height: 20px;
+        width: 24px;
+    }
+}

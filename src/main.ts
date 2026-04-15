@@ -2,6 +2,7 @@ import './style/style.scss'
 import { startScreeTemplate } from './templates/startScreenTemplate';
 import { settingScreenTemplate } from './templates/settingScreenTemplate';
 import { gameScreenTemplate } from './templates/gameScreenTemplate';
+import { endScreenTemplate } from './templates/endScreenTemplate';
 import { Game } from './interfaces';
 
 let gameState: Game = {
@@ -9,7 +10,9 @@ let gameState: Game = {
 };
 
 let matchState = {
-    currentPlayer: gameState.playerColor
+    currentPlayer: gameState.playerColor,
+    blueScore: 0,
+    orangeScore: 0
 }
 
 type Card = {
@@ -19,7 +22,7 @@ type Card = {
     isMatched: boolean;
 }
 
-startGame()
+endScreen()
 
 function init() {
     const startScreenRef = document.getElementById('startScreen')!;
@@ -149,17 +152,10 @@ function startGame() {
     if (gameScreenRef) {
         gameScreenRef.innerHTML = gameScreenTemplate();
         applyTheme();
+        resetMatchState()
+        displayScore();
+        displayCurrentPlayer();
     }
-
-    
-    let color = document.getElementById('color');
-    if (color && matchState.currentPlayer === "blue") {
-        color.classList.add("blue-label")
-    } else {
-        color?.classList.add("orange-label")
-    }
-
-
 
     let size = gameState.cardSize ?? 16;
     let cards: Card[] = shuffle(createPairs(size));
@@ -222,11 +218,12 @@ function startGame() {
     function checkMatch() {
         if (!firstCard || !secondCard) return;
 
-        const isMatch =
+        const isMatch: boolean =
             firstCard.dataset.value === secondCard.dataset.value;
 
         if (isMatch) {
             disableCards();
+            endTurn(isMatch);
         } else {
             unflipCards();
         }
@@ -235,8 +232,6 @@ function startGame() {
     function disableCards() {
         firstCard?.classList.add("matched");
         secondCard?.classList.add("matched");
-
-        resetBoard();
     }
 
     function unflipCards() {
@@ -245,15 +240,63 @@ function startGame() {
         setTimeout(() => {
             firstCard?.classList.remove("is-flipped");
             secondCard?.classList.remove("is-flipped");
-
-            resetBoard();
+            endTurn(false)
         }, 800);
+
     }
 
     function resetBoard() {
         firstCard = null;
         secondCard = null;
         lockBoard = false;
+    }
+
+    function endTurn(isMatch: boolean) {
+        if (isMatch === true) {
+            if (matchState.currentPlayer === "blue") {
+                matchState.blueScore++;
+            } else {
+                matchState.orangeScore++
+            }
+            displayScore();
+        } else {
+            matchState.currentPlayer = matchState.currentPlayer === "blue" ? "orange" : "blue" ;
+        }
+        displayCurrentPlayer();
+        resetBoard();
+    }
+
+    function displayCurrentPlayer() {
+        let color = document.getElementById('color');
+        if (!color) return;
+
+        if (matchState.currentPlayer === "blue") {
+            color.classList.add("blue-label");
+            color.classList.remove("orange-label");
+        } else {
+            color?.classList.add("orange-label");
+            color?.classList.remove("blue-label");
+        }
+    }
+
+    function displayScore() {
+        const blueEl = document.getElementById("blueScore");
+        const orangeEl = document.getElementById("orangeScore");
+
+        if (blueEl) {
+            blueEl.textContent = matchState.blueScore.toString();
+        }
+
+        if (orangeEl) {
+            orangeEl.textContent = matchState.orangeScore.toString();
+        }
+    }
+
+    function resetMatchState() {
+        matchState.blueScore = 0;
+        matchState.orangeScore = 0;
+        displayScore();
+        displayCurrentPlayer();
     }
 
     function applyTheme() {
@@ -324,5 +367,12 @@ function startGame() {
         return cards
             .map(c => ({ ...c }))
             .sort(() => Math.random() - 0.5);
+    }
+}
+
+function endScreen() {
+    const endScreenRef = document.getElementById('settingScreen');
+    if (endScreenRef) {
+        endScreenRef.innerHTML = endScreenTemplate();
     }
 }

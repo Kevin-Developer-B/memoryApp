@@ -8,12 +8,12 @@ export function gameScreenTemplate() {
                             <div class="show__card show__card--blue">
                                 <img src="./public/assets/img/label_blue.png" alt="label-blue">
                                 <span>Blue</span>
-                                <span>0</span>
+                                <span id="blueScore"></span>
                             </div>
                             <div class="show__card show__card--orange">
                                 <img src="./public/assets/img/label_orange.png" alt="label-orange">
                                 <span>Orange</span>
-                                <span>0</span>
+                                <span id="orangeScore"></span>
                             </div>
                         </div>
                         <div class="show__box show__current-player">
