@@ -24,7 +24,7 @@ type Card = {
     isMatched: boolean;
 }
 
-endScreen()
+startGame()
 
 function init() {
     const startScreenRef = document.getElementById('startScreen')!;
@@ -417,14 +417,15 @@ function endScreen() {
     function displayWinner() {
         const winnerEl = document.getElementById("winnerScreen");
         const winnerPlayer = document.getElementById("winnerPlayer");
+        const winnerImg = document.getElementById("winnerImg");
         if (!winnerEl) return;
 
-        if (winnerPlayer && matchState.blueScore > matchState.orangeScore) {
+        if (winnerImg && winnerPlayer && matchState.blueScore > matchState.orangeScore) {
             winnerPlayer.textContent = "BLUE PLAYER";
-            winnerPlayer.classList.add("winner__blue");
-        } else if (winnerPlayer && matchState.orangeScore > matchState.blueScore) {
+            winnerImg.classList.add("winner__blue");
+        } else if (winnerImg && winnerPlayer && matchState.orangeScore > matchState.blueScore) {
             winnerPlayer.textContent = "ORANGE PLAYER";
-            winnerPlayer.classList.add("winner__orange");
+            winnerImg.classList.add("winner__orange");
         } else {
             winnerPlayer!.textContent = "DRAW";
             winnerPlayer!.classList.remove("winner__orange");

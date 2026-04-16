@@ -31,7 +31,7 @@ export function endScreenTemplate() {
                     <h3>The winner is</h3>
                     <h2 id="winnerPlayer" class="winner__text--blue"></h2>
                 </div>
-                <span class="winner__blue winner__orange"></span>
+                <span id="winnerImg"></span>
                 <button>
 
                 </button>
