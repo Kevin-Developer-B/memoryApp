@@ -140,16 +140,24 @@
     }
 
     &__blue {
-        // opacity: 0;
         background-image: url('../../../public/assets/img/PlayerBlue.png');
         height: 250px;
         width: 200px;
     }
 
     &__orange {
-        // opacity: 0;
         background-image: url('../../../public/assets/img/PlayerOrange.png');
         height: 250px;
         width: 200px;
+    }
+
+    .button__text {
+        padding: 16px 24px;
+        background-color: #86E9D633;
+        color: #FFFFFF;
+        border: 1px solid #4DD5BC;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 100%;
     }
 }

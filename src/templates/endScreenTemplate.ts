@@ -33,7 +33,7 @@ export function endScreenTemplate() {
                 </div>
                 <span id="winnerImg"></span>
                 <button>
-
+                    <span class="button__text">Back to start</span>
                 </button>
             </div>
         </div>
