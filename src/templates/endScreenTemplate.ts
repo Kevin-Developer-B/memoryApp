@@ -29,10 +29,10 @@ export function endScreenTemplate() {
             <div class="winner">
                 <div class="winner__headline">
                     <h3>The winner is</h3>
-                    <h2 id="winnerPlayer" class="winner__text--blue"></h2>
+                    <h2 id="winnerPlayer"></h2>
                 </div>
                 <span id="winnerImg"></span>
-                <button>
+                <button id="backToStartBtn">
                     <span class="button__text">Back to start</span>
                 </button>
             </div>

@@ -24,7 +24,7 @@ type Card = {
     isMatched: boolean;
 }
 
-endScreen()
+init()
 
 function init() {
     const startScreenRef = document.getElementById('startScreen')!;
@@ -40,11 +40,13 @@ function settingScreen() {
     const start = document.getElementById('startScreen');
     const settingScreenRef = document.getElementById('settingScreen');
     const game = document.getElementById('gameScreen');
+    const end = document.getElementById('endScreen');
 
-    if (start && settingScreenRef && game) {
+    if (start && settingScreenRef && game && end) {
         start.style.display = "none";
         settingScreenRef.style.display = "flex";
         game.style.display = "none";
+        end.style.display = "none";
     }
 
 
@@ -396,6 +398,7 @@ function endScreen() {
     const game = document.getElementById('gameScreen');
     if (endScreenRef && game) {
         endScreenRef.innerHTML = endScreenTemplate();
+        endScreenRef.style.display = "flex";
         game.style.display = "none";
         displayEndScore();
         displayWinner();
@@ -422,13 +425,18 @@ function endScreen() {
 
         if (winnerImg && winnerPlayer && matchState.blueScore > matchState.orangeScore) {
             winnerPlayer.textContent = "BLUE PLAYER";
+            winnerPlayer.style.color = "blue";
             winnerImg.classList.add("winner__blue");
         } else if (winnerImg && winnerPlayer && matchState.orangeScore > matchState.blueScore) {
             winnerPlayer.textContent = "ORANGE PLAYER";
+            winnerPlayer.style.color ="orange";
             winnerImg.classList.add("winner__orange");
         } else {
             winnerPlayer!.textContent = "DRAW";
             winnerPlayer!.classList.remove("winner__orange");
         }
     }
+
+    let winnerBackBtn = document.getElementById('backToStartBtn');
+    winnerBackBtn?.addEventListener('click', settingScreen);
 }
