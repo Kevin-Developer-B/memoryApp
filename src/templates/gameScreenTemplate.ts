@@ -4,7 +4,7 @@ export function gameScreenTemplate() {
             <div class="container">
                 <header>
                     <div class="playerdisplay">
-                        <div class="playerdisplay__scoreboard">
+                        <div class="playerdisplay__scoreboard playerdisplay__scoreboard--revers">
                             <div class="playerdisplay__player">
                                 <span class="playerdisplay__icon--blue"></span>
                                 <span id="blueScore" class="playerdisplay__number"></span>
@@ -16,7 +16,9 @@ export function gameScreenTemplate() {
                         </div>
                         <div class="currentplayer">
                             <span class="currentplayer__text">Current player:</span>
-                            <span id="icon"></span>
+                            <span id="icon">
+                                <span class="white-chess"></span>
+                            </span>
                         </div>
                     </div>
                     <button>

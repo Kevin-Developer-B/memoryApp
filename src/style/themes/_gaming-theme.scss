@@ -6,6 +6,123 @@
         padding: 40px 96px;
     }
 
+    header {
+        background-color: #FD96C933;
+        border-radius: 10px;
+        padding: 24px;
+        margin-bottom: 20px;
+    }
+
+    .playerdisplay__scoreboard {
+        padding: 0 16px;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+
+        &--revers {
+            flex-direction: row-reverse;
+        }
+    }
+
+    .playerdisplay__player {
+        display: flex;
+        align-items: center;
+        width: max-content;
+        height: 38px;
+        gap: 8px;
+    }
+
+    .playerdisplay__icon--blue {
+        background-image: url('../../../public/assets/img/Themes/gaming/chess-blue.png');
+        height: 28px;
+        width: 22px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .playerdisplay__icon--orange {
+        background-image: url('../../../public/assets/img/Themes/gaming/chess-orange.png');
+        height: 28px;
+        width: 22px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .playerdisplay__number {
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 100%;
+        font-family: 'Orbitron';
+    }
+
+    .currentplayer {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        height: 40px;
+
+        &__text {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 100%;
+            font-family: 'Orbitron';
+            letter-spacing: 7%;
+        }
+
+        .blue-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 41px;
+            background-color: #1FAAFC;
+            border-radius: 3px;
+        }
+
+        .orange-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 40px;
+            width: 41px;
+            background-color: #F58E39;
+            border-radius: 3px;
+        }
+
+        .white-chess {
+            height: 32px;
+            width: 25px;
+            background-image: url('../../../public/assets/img/Themes/gaming/chess-white.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+
+    .field {
+        gap: 0px;
+        padding: 0px;
+
+        &.grid-16 {
+            grid-template-columns: repeat(4, 1fr);
+            width: 468px;
+            height: 528px;
+        }
+
+        &.grid-24 {
+            grid-template-columns: repeat(6, 1fr);
+            width: 660px;
+            height: 498px;
+        }
+
+        &.grid-32 {
+            grid-template-columns: repeat(6, 1fr);
+            width: 660px;
+            height: 750px;
+        }
+    }
+
     .exit {
         background-image: url('../../../public/assets/img/Themes/Gaming/gaming-exit.png');
         height: 54px;
@@ -21,6 +138,22 @@
 
     .card {
         width: 105px;
+
+        img {
+            width: 105px;
+        }
+
+        &.matched::after {
+            content: "";
+            position: absolute;
+            height: 100px;
+            width: 88px;
+            inset: 1px;
+            border-radius: 12px;
+            border: 3px solid #ed1b76;
+            box-shadow: 0 0 12px #ed1b76;
+            animation: pulseMatch 0.6s ease-in-out;
+        }
     }
 
     .card__face--back {
