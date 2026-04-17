@@ -31,7 +31,7 @@ export function gameScreenTemplate() {
             </div>
         </div>
         <div class="Overlay" id="overlay">
-            <div class="PopUp PopUp--closing">
+            <div class="PopUp PopUp--closing" id="popUp">
                 <h3>Are you sure you want to quit the game?</h3>
                 <div class="PopUp__btn-box">
                     <button class="popUp-btn popUp-btn--back" id="closeBtn">

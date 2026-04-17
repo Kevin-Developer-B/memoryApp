@@ -51,7 +51,7 @@
 }
 
 .Overlay {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     height: 100%;
@@ -64,12 +64,12 @@
     pointer-events: none;
 
     &.open {
-        @include mixin.fade-in;
+        @include mixin.shin-in();
         opacity: 1;
         pointer-events: all;
     }
 
     &.closing {
-        @include mixin.fade-out;
+        @include mixin.shin-out();
     }
 }

@@ -4,15 +4,27 @@
     $primary-dark-bg: rgb(47, 48, 48);
 }
 
-@mixin fade-in($time: 0.5s, $ease: ease-in) {
-    animation: fadeIn $time $ease forwards;
+@mixin fade-in-bottom($time: 0.5s, $ease: ease-in) {
+    animation: fadeInBottom $time $ease forwards;
 }
 
-@mixin fade-out($time: 0.5s, $ease: ease-out) {
-    animation: fadeOut $time $ease forwards;
+@mixin fade-out-bottom($time: 0.5s, $ease: ease-out) {
+    animation: fadeOutBottom $time $ease forwards;
+}
+
+@mixin fade-in-top($time: 0.5s, $ease: ease-in) {
+    animation: fadeInTop $time $ease forwards;
+}
+
+@mixin fade-out-top($time: 0.5s, $ease: ease-out) {
+    animation: fadeOutTop $time $ease forwards;
 }
 
 @mixin shin-in($time: 0.5s, $ease: ease-in) {
     animation: shinIn $time $ease forwards;
+}
+
+@mixin shin-out($time: 0.5s, $ease: ease-in) {
+    animation: shinOut $time $ease forwards;
 }
 

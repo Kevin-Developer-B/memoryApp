@@ -322,6 +322,7 @@ function startGame() {
     }
 
     let overlay = document.getElementById('overlay');
+    let popUp = document.getElementById('popUp');
     const selectionBtn = document.getElementById('selectionBtn');
     const closeBtn = document.getElementById('closeBtn');
     const exitBtn = document.getElementById('exitBtn');
@@ -334,21 +335,25 @@ function startGame() {
 
     selectionBtn?.addEventListener('click', () => {
         overlay?.classList.toggle("open");
-        overlay?.classList.remove("closing");
+        setTimeout(() => {
+            popUp?.classList.toggle("open");
+        },0);
     });
 
     closeBtn?.addEventListener('click', closeOverlay);
     exitBtn?.addEventListener('click', settingScreen);
 
     function closeOverlay() {
-        let overlay = document.getElementById('overlay');
         if (overlay) {
             overlay.classList.add("closing");
+            popUp?.classList.add("closing");
 
             setTimeout(() => {
                 overlay.classList.remove("open");
                 overlay.classList.remove("closing");
-            }, 500);
+                popUp?.classList.remove("open");
+                popUp?.classList.remove("closing");
+            }, 1000);
         }
     }
 

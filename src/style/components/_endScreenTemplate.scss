@@ -83,7 +83,7 @@
 }
 
 .winnerOverlay {
-    @include mixin.fade-in(3s);
+    @include mixin.fade-in-top(3s);
     position: absolute;
     top: 0;
     left: 0;

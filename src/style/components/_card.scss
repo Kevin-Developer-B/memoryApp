@@ -1,5 +1,6 @@
 @use 'sass:map';
 @use '../abstract/mixin';
+@use '../base/mainBase';
 
 $breakpoints: (
     sm: 480px,
@@ -50,17 +51,5 @@ $breakpoints: (
     &.matched {
         pointer-events: none;
         position: relative;
-    }
-}
-
-@keyframes pulseMatch {
-    0% {
-        transform: scale(0.9);
-        opacity: 0;
-    }
-
-    100% {
-        transform: scale(1);
-        opacity: 0.75;
     }
 }
