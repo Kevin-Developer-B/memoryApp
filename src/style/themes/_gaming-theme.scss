@@ -1,3 +1,31 @@
 .gaming-theme {
-    background: lime;
+    background: rgb(42, 79, 97);
+    font-family: 'RedRose';
+
+    .container {
+        padding: 40px 96px;
+    }
+
+    .exit {
+        background-image: url('../../../public/assets/img/Themes/Gaming/gaming-exit.png');
+        height: 54px;
+        width: 195px;
+
+        &:hover {
+            background-image: url('../../../public/assets/img/Themes/Gaming/gaming-exit-hover.png');
+            height: 54px;
+            width: 195px;
+            background-size: cover;
+        }
+    }
+
+    .card {
+        width: 105px;
+    }
+
+    .card__face--back {
+        background-image: url('../../../public/assets/img/Themes/gaming/gaming_cardback.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
 }

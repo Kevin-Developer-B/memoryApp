@@ -12,6 +12,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Devanagari';
+    src: url('../../../public/assets/fonts/AnekDevanagari-Regular.ttf') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Orbitron';
+    src: url('../../../public/assets/fonts/Orbitron-Regular.ttf') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+
 
 
 $primary-white-color: #FFFFFF;

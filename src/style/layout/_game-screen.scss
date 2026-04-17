@@ -1,0 +1,75 @@
+@use '../abstract/mixin';
+
+.gamingBox {
+    height: 100vh;
+    width: 100vw;
+}
+
+.playerdisplay {
+    height: 100%;
+    width: 687px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: default;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+}
+
+.field {
+    width: 100%;
+    display: grid;
+    place-content: center;
+    gap: 12px;
+    padding: 12px;
+    justify-content: center;
+    align-items: center;
+
+    &.grid-16 {
+        grid-template-columns: repeat(4, 1fr);
+        width: 529px;
+        height: 528px;
+    }
+
+    &.grid-24 {
+        grid-template-columns: repeat(6, 1fr);
+        width: 750px;
+        height: 498px;
+    }
+
+    &.grid-32 {
+        grid-template-columns: repeat(6, 1fr);
+        width: 750px;
+        height: 750px;
+    }
+}
+
+.Overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+
+    &.open {
+        @include mixin.fade-in;
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    &.closing {
+        @include mixin.fade-out;
+    }
+}

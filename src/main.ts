@@ -6,7 +6,7 @@ import { endScreenTemplate } from './templates/endScreenTemplate';
 import { Game } from './interfaces';
 
 let gameState: Game = {
-    theme: "codeVibes",
+    theme: "gaming",
 };
 
 let matchState = {
@@ -24,7 +24,7 @@ type Card = {
     isMatched: boolean;
 }
 
-init()
+startGame()
 
 function init() {
     const startScreenRef = document.getElementById('startScreen')!;
@@ -133,7 +133,6 @@ function updateStartButtonState() {
     const button = document.getElementById("startGame") as HTMLButtonElement;
 
     if (players && size) {
-
         button.disabled = false;
         button.classList.remove("btn-start--disabled")
     } else {
@@ -183,7 +182,7 @@ function startGame() {
                     <div class="card__inner">
                         <div class="card__face card__face--back"></div>
                         <div class="card__face card__face--front">
-                            <img src="../../../public/assets/img/Themes/CodeVibe/${card.value}.png" alt="${card.value}">
+                            <img src="../../../public/assets/img/Themes/${gameState.theme}/${card.value}.png" alt="${card.value}">
                         </div>
                     </div>
                 `;
@@ -214,6 +213,14 @@ function startGame() {
 
             checkMatch();
         });
+    }
+
+    function applyTheme() {
+        let theme = document.getElementById("gameScreen");
+        if (!theme) return;
+        let themes = ["codeVibes-theme", "gaming-theme"];
+        theme.classList.remove(...themes);
+        theme.classList.add(`${gameState.theme}-theme`)
     }
 
     function flipCard(card: HTMLButtonElement) {
@@ -280,7 +287,7 @@ function startGame() {
     }
 
     function displayCurrentPlayer() {
-        let color = document.getElementById('color');
+        let color = document.getElementById('icon');
         if (!color) return;
 
         if (matchState.currentPlayer === "blue") {
@@ -298,10 +305,12 @@ function startGame() {
 
         if (blueEl) {
             blueEl.textContent = matchState.blueScore.toString();
+            blueEl.style.color = "#2BB1FF"
         }
 
         if (orangeEl) {
             orangeEl.textContent = matchState.orangeScore.toString();
+            orangeEl.style.color = "#F58E39"
         }
     }
 
@@ -310,13 +319,6 @@ function startGame() {
         matchState.orangeScore = 0;
         displayScore();
         displayCurrentPlayer();
-    }
-
-    function applyTheme() {
-        let theme = document.getElementById("gameScreen");
-        if (!theme) return;
-
-        theme.classList = gameState.theme === "gaming" ? "gaming-theme" : "codeVibes-theme";
     }
 
     let overlay = document.getElementById('overlay');
@@ -429,7 +431,7 @@ function endScreen() {
             winnerImg.classList.add("winner__blue");
         } else if (winnerImg && winnerPlayer && matchState.orangeScore > matchState.blueScore) {
             winnerPlayer.textContent = "ORANGE PLAYER";
-            winnerPlayer.style.color ="orange";
+            winnerPlayer.style.color = "orange";
             winnerImg.classList.add("winner__orange");
         } else {
             winnerPlayer!.textContent = "DRAW";

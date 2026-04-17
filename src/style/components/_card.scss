@@ -15,7 +15,7 @@ $breakpoints: (
 .card {
     @include mixin.shin-in(1s);
     height: 120px;
-    aspect-ratio: 1/1;
+    width: 120px;
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -32,10 +32,6 @@ $breakpoints: (
         position: absolute;
         inset: 0;
         backface-visibility: hidden;
-
-        &--back {
-            background-image: url('../../../public/assets/img/Themes/CodeVibe/CodeVibes_cardback.png')
-        }
 
         &--front {
             @include mixin.bg-color;
