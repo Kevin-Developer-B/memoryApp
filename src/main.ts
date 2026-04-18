@@ -6,7 +6,7 @@ import { endScreenTemplate } from './templates/endScreenTemplate';
 import { Game } from './interfaces';
 
 let gameState: Game = {
-    theme: "gaming",
+    theme: "codeVibes",
 };
 
 let matchState = {
@@ -24,7 +24,7 @@ type Card = {
     isMatched: boolean;
 }
 
-startGame()
+endScreen()
 
 function init() {
     const startScreenRef = document.getElementById('startScreen')!;
@@ -37,6 +37,7 @@ function init() {
 }
 
 function settingScreen() {
+    gameState.theme = "codeVibes";
     const start = document.getElementById('startScreen');
     const settingScreenRef = document.getElementById('settingScreen');
     const game = document.getElementById('gameScreen');
@@ -216,11 +217,14 @@ function startGame() {
     }
 
     function applyTheme() {
-        let theme = document.getElementById("gameScreen");
-        if (!theme) return;
+        let themeGameScreen = document.getElementById("gameScreen");
+        let themeEndScreen = document.getElementById("endScreen");
+        if (!themeGameScreen || !themeEndScreen) return;
         let themes = ["codeVibes-theme", "gaming-theme"];
-        theme.classList.remove(...themes);
-        theme.classList.add(`${gameState.theme}-theme`)
+        themeGameScreen.classList.remove(...themes);
+        themeEndScreen.classList.remove(...themes);
+        themeGameScreen.classList.add(`${gameState.theme}-theme`)
+        themeEndScreen.classList.add(`${gameState.theme}-theme`)
     }
 
     function flipCard(card: HTMLButtonElement) {
@@ -417,10 +421,12 @@ function endScreen() {
 
         if (blue) {
             blue.textContent = matchState.blueScore.toString();
+            blue.style.color = "#2BB1FF"
         }
 
         if (orange) {
             orange.textContent = matchState.orangeScore.toString();
+            orange.style.color = "#F58E39"
         }
     }
 

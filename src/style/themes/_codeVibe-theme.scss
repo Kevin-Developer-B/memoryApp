@@ -148,4 +148,129 @@
             @include mixin.fade-out-top(0.5s);
         }
     }
+
+    // endscreen
+
+    .gameover {
+        height: 367px;
+        width: 990px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        &__img {
+            background-image: url('../../../public/assets/img/Themes/codeVibes/game_over-codeVibeTheme.png');
+            height: 125px;
+            width: 990px;
+            background-size: cover;
+            background-position: center;
+        }
+    }
+
+    .score {
+        height: 118px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__text {
+            font-size: 26px;
+            line-height: 100%;
+            color: #FFFFFF;
+            font-weight: 400;
+        }
+
+        &__board {
+            height: 62px;
+            background-color: #86E9D633;
+            padding: 17px 20px;
+            display: flex;
+            gap: 32px;
+            justify-content: space-between;
+        }
+    }
+
+    .winnerOverlay {
+        @include mixin.fade-in-top(3s);
+    }
+
+    .confetti {
+        position: absolute;
+        top: -32px;
+        left: 0;
+        background-image: url('./../../../public/assets/img/Themes/codeVibes/Confetti.png');
+        height: 359px;
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .winner {
+        height: 573px;
+        width: 522px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 150px;
+        font-family: "RedRose";
+
+        &__headline {
+            height: 133px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            text-align: center;
+
+            h3 {
+                font-size: 40px;
+                font-weight: 400;
+                line-height: 100%;
+            }
+
+            h2 {
+                font-size: 60px;
+                font-weight: 700;
+                line-height: 100%;
+
+                .blue {
+                    color: #2BB1FF;
+                }
+
+                .orange {
+                    color: #F58E39;
+                }
+            }
+        }
+
+        &__blue {
+            background-image: url('../../../public/assets/img/PlayerBlue.png');
+            height: 250px;
+            width: 200px;
+        }
+
+        &__orange {
+            background-image: url('../../../public/assets/img/PlayerOrange.png');
+            height: 250px;
+            width: 200px;
+        }
+
+        .button__text {
+            padding: 16px 24px;
+            background-color: #86E9D633;
+            color: #FFFFFF;
+            border: 1px solid #4DD5BC;
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 100%;
+
+            &::before {
+                content: "Back to start";
+            }
+        }
+    }
 }

@@ -1,22 +1,20 @@
 export function endScreenTemplate() {
     return `
-        <div class="body-box">
+        <div class="endscreen codeVibes-theme">
             <div class="container">
-                <div class="endScreen">
-                    <div class="endScreen__box">
-                        <span class="gameover-img"></span>
+                <div class="endscreen__box">
+                    <div class="gameover">
+                        <span class="gameover__img"></span>
                         <div class="score">
-                            <span class="score__text">Final score</span>
-                            <div class="score__board score__board--bg">
-                                <div class="player player--blue">
-                                    <img src="./public/assets/img/label_blue.png" alt="">
-                                    <span>Blue</span>
-                                    <span class="player__text" id="endBlueScore"></span>
+                            <h3 class="score__text">Final score</h3>
+                            <div class="score__board score__board--revers">
+                                <div class="playerdisplay__player">
+                                    <span class="playerdisplay__icon--blue"></span>
+                                    <span id="endBlueScore" class="playerdisplay__number"></span>
                                 </div>
-                                <div class="player player--orange">
-                                    <img src="./public/assets/img/label_orange.png" alt="">
-                                    <span>Orange</span>
-                                    <span class="player__text" id="endOrangeScore"></span>
+                                <div class="playerdisplay__player">
+                                    <span class="playerdisplay__icon--orange"></span>
+                                    <span id="endOrangeScore" class="playerdisplay__number"></span>
                                 </div>
                             </div>
                         </div>
@@ -24,16 +22,16 @@ export function endScreenTemplate() {
                 </div>
             </div>
         </div>
-        <div id="winnerScreen" class="winnerOverlay">
+        <div id="winnerScreen" class="winnerOverlay codeVibes-theme">
             <span class="confetti"></span>
             <div class="winner">
                 <div class="winner__headline">
                     <h3>The winner is</h3>
                     <h2 id="winnerPlayer"></h2>
                 </div>
-                <span id="winnerImg"></span>
+                <span id="winnerImg" class="winnerImg"></span>
                 <button id="backToStartBtn">
-                    <span class="button__text">Back to start</span>
+                    <p class="button__text"></p>
                 </button>
             </div>
         </div>
