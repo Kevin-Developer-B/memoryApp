@@ -32,41 +32,22 @@
     width: 100%;
     display: grid;
     place-content: center;
-    gap: 12px;
-    padding: 12px;
     justify-content: center;
     align-items: center;
 
     &.grid-16 {
         grid-template-columns: repeat(4, 1fr);
         width: fit-content;
-        height: 528px;
-
-        @include mixin.respond(md) {
-            height: 100%;
-        }
     }
 
     &.grid-24 {
         grid-template-columns: repeat(6, 1fr);
         width: fit-content;
-        height: 498px;
-
-        @include mixin.respond(md) {
-            height: 100%;
-            grid-template-columns: repeat(4, 1fr);
-        }
     }
 
     &.grid-32 {
         grid-template-columns: repeat(6, 1fr);
         width: fit-content;
-        height: 750px;
-
-        @include mixin.respond(md) {
-            height: 100%;
-            grid-template-columns: repeat(4, 1fr);
-        }
     }
 }
 

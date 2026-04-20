@@ -5,7 +5,11 @@
     font-family: 'RedRose';
 
     .container {
-        padding: 40px 96px;
+        padding: 40px 96px 0;
+
+        @include mixin.respond(sm1) {
+            padding: 40px 16px 0;
+        }
     }
 
     header {
@@ -13,6 +17,10 @@
         border-radius: 10px;
         padding: 24px;
         margin-bottom: 20px;
+
+        @include mixin.respond(sm) {
+            padding: 24px 8px;
+        }
     }
 
     .playerdisplay__scoreboard {
@@ -25,6 +33,13 @@
 
         &--revers {
             flex-direction: row-reverse;
+        }
+
+        @include mixin.respond(md) {
+            padding: 0 2px;
+            width: max-content;
+            flex-direction: column;
+            gap: 4px;
         }
     }
 
@@ -65,12 +80,20 @@
         gap: 18px;
         height: 40px;
 
+        @include mixin.respond(md) {
+            gap: 4px;
+        }
+
         &__text {
             font-size: 32px;
             font-weight: 700;
             line-height: 100%;
             font-family: 'Orbitron';
             letter-spacing: 7%;
+
+            @include mixin.respond(md) {
+                font-size: 16px;
+            }
         }
 
         .blue-label {
@@ -102,26 +125,13 @@
         }
     }
 
-    .field {
-        gap: 0px;
-        padding: 0px;
-
-        &.grid-16 {
-            grid-template-columns: repeat(4, 1fr);
-            width: 468px;
-            height: 528px;
-        }
-
-        &.grid-24 {
-            grid-template-columns: repeat(6, 1fr);
-            width: 660px;
-            height: 498px;
-        }
-
-        &.grid-32 {
-            grid-template-columns: repeat(6, 1fr);
-            width: 660px;
-            height: 750px;
+    .respond-btn {
+        @include mixin.respond(la) {
+            padding: 8px;
+            background-color: #ED1B7614;
+            border: 1px solid #ed1b76;
+            border-radius: 10px;
+            margin-left: 30px;
         }
     }
 
@@ -129,38 +139,157 @@
         background-image: url('../../../public/assets/img/Themes/Gaming/gaming-exit.png');
         height: 54px;
         width: 195px;
+        margin-left: 30px;
 
         &:hover {
             background-image: url('../../../public/assets/img/Themes/Gaming/gaming-exit-hover.png');
             height: 54px;
             width: 195px;
             background-size: cover;
+
+            @include mixin.respond(la) {
+                background-image: url('../../../public/assets/img/Themes/Gaming/close_door.png');
+                height: 32px;
+                width: 32px;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+        }
+
+        @include mixin.respond(la) {
+            background-image: url('../../../public/assets/img/Themes/Gaming/close_door.png');
+            height: 32px;
+            width: 32px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: 0;
+        }
+    }
+
+    .field {
+        gap: 4px;
+        padding: 0px;
+
+        &.grid-16 {
+            grid-template-columns: repeat(4, 1fr);
+            width: fit-content;
+        }
+
+        &.grid-24 {
+            grid-template-columns: repeat(6, 1fr);
+            width: fit-content;
+        }
+
+        &.grid-32 {
+            grid-template-columns: repeat(6, 1fr);
+            width: fit-content;
         }
     }
 
     .card {
+        height: 120px;
         width: 105px;
 
-        img {
-            width: 105px;
+        @include mixin.respond(la) {
+            height: 95px;
+            width: 90px;
         }
+
+        @include mixin.respond(md) {
+            height: 65px;
+            width: 60px;
+        }
+
+        @include mixin.respond-height(tall) {
+            height: 65px;
+            width: 55px;
+        }
+
+        &__inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: all 300ms ease-in-out;
+
+            @include mixin.respond(la) {
+                height: 95px;
+                width: 90px;
+            }
+
+            @include mixin.respond(md) {
+                height: 65px;
+                width: 60px;
+            }
+
+            @include mixin.respond-height(tall) {
+                height: 65px;
+                width: 55px;
+            }
+        }
+
+        &__face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+
+            &--front {
+                @include mixin.bg-color;
+                transform: rotateY(180deg);
+            }
+
+            img {
+                height: 117px;
+
+                @include mixin.respond(la) {
+                    height: 95px;
+                    width: 90px;
+                }
+
+                @include mixin.respond(md) {
+                    height: 65px;
+                    width: 60px;
+                }
+
+                @include mixin.respond-height(tall) {
+                    height: 65px;
+                    width: 55px;
+                }
+            }
+        }
+
 
         &.matched::after {
             content: "";
             position: absolute;
-            height: 100px;
-            width: 88px;
-            inset: 1px;
+            height: 101px;
+            width: 92px;
+            inset: 0px;
             border-radius: 12px;
             border: 3px solid #ed1b76;
             box-shadow: 0 0 12px #ed1b76;
             animation: pulseMatch 0.6s ease-in-out;
+
+            @include mixin.respond(la) {
+                height: 83px;
+                width: 78px;
+            }
+
+            @include mixin.respond(md) {
+                height: 55px;
+                width: 52px;
+            }
+
+            @include mixin.respond-height(tall) {
+                height: 55px;
+                width: 47px;
+            }
         }
     }
 
     .card__face--back {
         background-image: url('../../../public/assets/img/Themes/gaming/gaming_cardback.png');
-        background-size: cover;
+        background-size: contain;
         background-repeat: no-repeat;
     }
 

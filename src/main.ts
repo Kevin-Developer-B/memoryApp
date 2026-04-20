@@ -6,7 +6,7 @@ import { endScreenTemplate } from './templates/endScreenTemplate';
 import { Game } from './interfaces';
 
 let gameState: Game = {
-    theme: "codeVibes",
+    theme: "gaming",
 };
 
 let matchState = {

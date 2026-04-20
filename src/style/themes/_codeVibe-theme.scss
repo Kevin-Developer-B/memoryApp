@@ -8,7 +8,7 @@
         padding: 40px 96px;
 
         @include mixin.respond(sm1) {
-            padding: 40px 16px;
+            padding: 40px 16px 0;
         }
     }
 
@@ -138,6 +138,38 @@
         }
     }
 
+    .field {
+        gap: 12px;
+        padding: 12px;
+
+        &.grid-16 {
+            grid-template-columns: repeat(4, 1fr);
+            width: fit-content;
+        }
+
+        &.grid-24 {
+            grid-template-columns: repeat(6, 1fr);
+            width: fit-content;
+
+            @include mixin.respond(md) {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        &.grid-32 {
+            grid-template-columns: repeat(6, 1fr);
+            width: fit-content;
+
+            @include mixin.respond(sm) {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            @include mixin.respond-height(tall) {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+    }
+
     .card.matched::after {
         content: "";
         position: absolute;
@@ -161,6 +193,11 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        margin: 0 16px;
+
+        @include mixin.respond(sm) {
+            height: auto;
+        }
 
         h3 {
             font-size: 32px;
@@ -168,6 +205,10 @@
             line-height: 40px;
             text-align: center;
             letter-spacing: 1px;
+
+            @include mixin.respond(sm) {
+                font-size: 24px;
+            }
         }
 
         &__btn-box {
@@ -182,6 +223,10 @@
             font-size: 20px;
             font-weight: 700;
             line-height: 100%;
+
+            @include mixin.respond(sm) {
+                font-size: 16px;
+            }
         }
 
         &.open {

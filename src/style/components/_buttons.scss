@@ -110,6 +110,10 @@ button {
     .popUp-btn {
         padding: 16px 24px;
 
+        @include mixin.respond(sm) {
+            padding: 8px
+        }
+
         &--back {
             background-color: #66CFBC;
             border: 2px solid #4DD5BC;

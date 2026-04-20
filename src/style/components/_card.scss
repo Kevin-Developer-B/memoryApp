@@ -20,6 +20,11 @@
         width: 60px;
     }
 
+    @include mixin.respond-height(tall) {
+        height: 45px;
+        width: 45px;
+    }
+
     &__inner {
         position: relative;
         width: 100%;
@@ -35,6 +40,11 @@
         @include mixin.respond(md) {
             height: 60px;
             width: 60px;
+        }
+
+        @include mixin.respond-height(tall) {
+            height: 45px;
+            width: 45px;
         }
     }
 
@@ -57,6 +67,11 @@
             @include mixin.respond(md) {
                 height: 60px;
                 width: 60px;
+            }
+
+            @include mixin.respond-height(tall) {
+                height: 45px;
+                width: 45px;
             }
         }
     }
