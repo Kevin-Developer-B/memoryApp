@@ -211,8 +211,24 @@
 
     // endscreen
 
-    .gameover {
+    .endscreen {
+        position: fixed;
+        inset: 0;
+        height: 100vh;
+        min-height: 100vh;
+        width: 100%;
+        background: rgb(42, 79, 97);
+        overflow: hidden;
 
+        &__box {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .gameover {
         height: 379px;
         width: 959px;
         display: flex;
@@ -260,24 +276,32 @@
         }
     }
 
-    .endscreen {
-        position: fixed;
-        top: 0;
-        left: 0;
-    }
-
     .winnerOverlay {
         @include mixin.fade-in-bottom(3s);
+        position: fixed;
+        inset: 0;
+        height: 100%;
+        width: 100%;
         background: rgb(42, 79, 97);
+        color: #FFFFFF;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .confetti {
+        display: none;
     }
 
     .winner {
         height: 639px;
+        width: max-content;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
         font-family: "Orbitron";
+        margin-top: 0;
 
         &__headline {
             height: 118px;
@@ -325,9 +349,11 @@
             font-size: 24px;
             font-weight: 700;
             line-height: 100%;
+            transition: 256ms ease-in-out;
 
             &:hover {
-                border: 2px solid #E71C4F;
+                box-shadow: inset 0px 0px 1px 1px #e71c4f;
+                background-color: #ed1b7638;
             }
 
             &::before {

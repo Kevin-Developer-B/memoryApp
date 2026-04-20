@@ -2,6 +2,7 @@
 
 .gamingBox {
     height: 100vh;
+    min-height: 100vh;
     width: 100vw;
 }
 
@@ -12,6 +13,11 @@
     justify-content: space-between;
     align-items: center;
     cursor: default;
+
+    @include mixin.respond(bi) {
+        justify-content: start;
+        gap: 8px;
+    }
 }
 
 .box {
@@ -33,20 +39,34 @@
 
     &.grid-16 {
         grid-template-columns: repeat(4, 1fr);
-        width: 529px;
+        width: fit-content;
         height: 528px;
+
+        @include mixin.respond(md) {
+            height: 100%;
+        }
     }
 
     &.grid-24 {
         grid-template-columns: repeat(6, 1fr);
-        width: 750px;
+        width: fit-content;
         height: 498px;
+
+        @include mixin.respond(md) {
+            height: 100%;
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 
     &.grid-32 {
         grid-template-columns: repeat(6, 1fr);
-        width: 750px;
+        width: fit-content;
         height: 750px;
+
+        @include mixin.respond(md) {
+            height: 100%;
+            grid-template-columns: repeat(4, 1fr);
+        }
     }
 }
 

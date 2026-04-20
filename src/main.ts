@@ -24,7 +24,7 @@ type Card = {
     isMatched: boolean;
 }
 
-endScreen()
+startGame()
 
 function init() {
     const startScreenRef = document.getElementById('startScreen')!;

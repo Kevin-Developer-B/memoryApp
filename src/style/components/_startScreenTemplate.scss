@@ -1,8 +1,17 @@
+@use '../abstract/mixin';
+
 .body-box {
     height: 100vh;
     width: 100vw;
     background-color: rgb(47, 48, 48);
 }
+
+.container {
+    @include mixin.respond(md) {
+            padding: 0;
+        }
+}
+
 .start-sceen-box {
     height: 100%;
     min-height: 100vh;
@@ -28,6 +37,10 @@
         line-height: 100%;
         letter-spacing: 0;
         font-family: 'RedRose';
+        @include mixin.respond(sm) {
+            font-size: 32px;
+            line-height: 120%;
+        }
     }
 
     .headline__h1 {
@@ -35,6 +48,15 @@
         font-weight: 700;
         line-height: 100%;
         letter-spacing: 0;
+        @include mixin.respond(bi) {
+            font-size: 80px;
+        }
+        @include mixin.respond(md) {
+            font-size: 56px;
+        }
+        @include mixin.respond(sm) {
+            font-size: 40px;
+        }
     }
 }
 

@@ -2,17 +2,6 @@
 @use '../abstract/mixin';
 @use '../base/mainBase';
 
-$breakpoints: (
-    sm: 480px,
-    md: 768px
-);
-
-@mixin respond($size) {
-    @media screen and (max-width: map.get($breakpoints, $size)) {
-        @content;
-    }
-}
-
 .card {
     @include mixin.shin-in(1s);
     height: 120px;
@@ -21,12 +10,32 @@ $breakpoints: (
     border: none;
     cursor: pointer;
 
+    @include mixin.respond(la) {
+        height: 90px;
+        width: 90px;
+    }
+
+    @include mixin.respond(md) {
+        height: 60px;
+        width: 60px;
+    }
+
     &__inner {
         position: relative;
         width: 100%;
         height: 100%;
         transform-style: preserve-3d;
         transition: all 300ms ease-in-out;
+
+        @include mixin.respond(la) {
+            height: 90px;
+            width: 90px;
+        }
+
+        @include mixin.respond(md) {
+            height: 60px;
+            width: 60px;
+        }
     }
 
     &__face {
@@ -38,14 +47,22 @@ $breakpoints: (
             @include mixin.bg-color;
             transform: rotateY(180deg);
         }
+
+        img {
+            @include mixin.respond(la) {
+                height: 90px;
+                width: 90px;
+            }
+
+            @include mixin.respond(md) {
+                height: 60px;
+                width: 60px;
+            }
+        }
     }
 
     &.is-flipped .card__inner {
         transform: rotateY(180deg);
-    }
-
-    @include respond(sm) {
-        height: 100px;
     }
 
     &.matched {

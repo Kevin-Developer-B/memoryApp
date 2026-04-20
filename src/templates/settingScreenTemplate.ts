@@ -8,7 +8,7 @@ export function settingScreenTemplate() {
                         <img class="underline-img" src="public/assets/img/Line 3.png" alt="">
                     </div>
                     <form id="settingForm">
-                        <div>
+                        <div class="respnd">
                             <div class="small-headline">
                                 <img src="public/assets/img/palette.png" alt="">
                                 <h3>Game themes</h3>
@@ -81,11 +81,13 @@ export function settingScreenTemplate() {
                         </div>
 
                         <div class="start-container" id="preview">
-                            <span class="start-container__text" id="selectedTheme">Game theme</span>
-                            <img class="start-container__img" src="public/assets/img/across_line.png" alt="">
-                            <span class="start-container__text" id="selectedPlayer">Player</span>
-                            <img class="start-container__img" src="public/assets/img/across_line.png" alt="">
-                            <span class="start-container__text" id="selectedSize">Board size</span>
+                            <div class="start-container__box">
+                                <span class="start-container__text" id="selectedTheme">Game theme</span>
+                                <img class="start-container__img" src="public/assets/img/across_line.png" alt="">
+                                <span class="start-container__text" id="selectedPlayer">Player</span>
+                                <img class="start-container__img" src="public/assets/img/across_line.png" alt="">
+                                <span class="start-container__text" id="selectedSize">Board size</span>
+                            </div>
                             <button type="button" class="btn-start btn-start--disabled" id="startGame" disabled>
                                 <img class="btn-start__smart-display btn-start__smart-display--rotate"
                                     src="public/assets/img/smart_display.png" alt="">

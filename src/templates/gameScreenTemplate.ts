@@ -21,8 +21,8 @@ export function gameScreenTemplate() {
                             </span>
                         </div>
                     </div>
-                    <button>
-                        <div class="exit" id="selectionBtn"></div>
+                    <button class="respond-btn" id="selectionBtn">
+                        <div class="exit"></div>
                     </button>
                 </header>
                 <section class="box">

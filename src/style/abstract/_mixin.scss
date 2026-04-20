@@ -1,4 +1,18 @@
+@use "sass:map";
 
+$breakpoints: (
+    sm: 480px,
+    sm1: 600px,
+    md: 768px,
+    la: 970px,
+    bi: 1180px
+);
+
+@mixin respond($size) {
+    @media screen and (max-width: map.get($breakpoints, $size)) {
+        @content;
+    }
+}
 
 @mixin bg-color {
     $primary-dark-bg: rgb(47, 48, 48);
@@ -27,4 +41,3 @@
 @mixin shin-out($time: 0.5s, $ease: ease-in) {
     animation: shinOut $time $ease forwards;
 }
-
