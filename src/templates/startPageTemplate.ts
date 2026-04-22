@@ -8,9 +8,9 @@ export function startPageTemplate() {
                         <span class="headline__h1">Ready to play?</span>
                     </div>
                     <button class="btn" id="playBtn">
-                        <img class="btn__img--rotate" src="public/assets/img/stadia_controller.png" alt="arrow-left">
+                        <img class="btn__img--rotate" src="./assets/img/stadia_controller.png" alt="arrow-left">
                         <span class="btn__text">Play</span>
-                        <img class="btn__img--scale" src="public/assets/img/Arrow-left.png" alt="arrow-left">
+                        <img class="btn__img--scale" src="./assets/img/Arrow-left.png" alt="arrow-left">
                     </button>
                 </div>
             </div>

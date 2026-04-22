@@ -86,7 +86,7 @@ function getCardTemplate(card: Card): string {
         <div class="card__inner">
             <div class="card__face card__face--back"></div>
             <div class="card__face card__face--front">
-                <img src="../../../public/assets/img/Themes/${gameState.theme}/${card.value}.png" alt="${card.value}">
+                <img src="./assets/img/Themes/${gameState.theme}/${card.value}.png" alt="${card.value}">
             </div>
         </div>
     `;
