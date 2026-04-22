@@ -10,6 +10,16 @@
         @include mixin.respond(sm1) {
             padding: 40px 16px 0;
         }
+
+        @include mixin.respond-height(short) {
+            padding: 8px 16px 0;
+        }
+    }
+
+    header {
+        @include mixin.respond-height(short) {
+            margin-bottom: 10px;
+        }
     }
 
     .playerdisplay {
@@ -167,6 +177,10 @@
             @include mixin.respond-height(tall) {
                 grid-template-columns: repeat(6, 1fr);
             }
+
+            @include mixin.respond-height(short) {
+                grid-template-columns: repeat(9, 1fr);
+            }
         }
     }
 
@@ -271,6 +285,21 @@
             width: 990px;
             background-size: cover;
             background-position: center;
+
+            @include mixin.respond(bi) {
+                height: 90px;
+                width: 660px;
+            }
+
+            @include mixin.respond(md) {
+                height: 55px;
+                width: 400px;
+            }
+
+            @include mixin.respond(sm) {
+                height: 40px;
+                width: 300px;
+            }
         }
     }
 
@@ -313,7 +342,7 @@
     }
 
     .confetti {
-        position: absolute;
+        position: fixed;
         top: -32px;
         left: 0;
         background-image: url('./../../../public/assets/img/Themes/codeVibes/Confetti.png');
@@ -322,6 +351,30 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+
+        @include mixin.respond(bi) {
+            top: -48px;
+        }
+
+        @include mixin.respond(la) {
+            top: -85px;
+        }
+
+        @include mixin.respond(md) {
+            top: -100px;
+        }
+
+        @include mixin.respond(sm1) {
+            top: -120px;
+        }
+
+        @include mixin.respond(sm) {
+            top: -140px;
+        }
+
+        @include mixin.respond-height(medium) {
+            top: -140px;
+        }
     }
 
     .winner {
@@ -334,9 +387,28 @@
         margin-top: 150px;
         font-family: "RedRose";
 
-        &__headline {
-            height: 133px;
+        @include mixin.respond(md) {
+            margin-top: 0;
+        }
+
+        @include mixin.respond(sm) {
+            height: 420px;
             width: 100%;
+        }
+
+        @include mixin.respond-height(medium) {
+            position: absolute;
+            bottom: 16px;
+            height: 420px;
+            margin-top: 0;
+        }
+
+        @include mixin.respond-height(short) {
+            height: 315px;
+        }
+
+        &__headline {
+            width: max-content;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -346,12 +418,24 @@
                 font-size: 40px;
                 font-weight: 400;
                 line-height: 100%;
+
+                @include mixin.respond(sm) {
+                    font-size: 24px;
+                }
             }
 
             h2 {
                 font-size: 60px;
                 font-weight: 700;
                 line-height: 100%;
+
+                @include mixin.respond(sm1) {
+                    font-size: 40px;
+                }
+
+                @include mixin.respond(sm) {
+                    font-size: 30px;
+                }
 
                 .blue {
                     color: #2BB1FF;
@@ -367,12 +451,44 @@
             background-image: url('../../../public/assets/img/PlayerBlue.png');
             height: 250px;
             width: 200px;
+            background-size: cover;
+
+            @include mixin.respond(sm) {
+                height: 190px;
+                width: 152px;
+            }
+
+            @include mixin.respond-height(medium) {
+                height: 190px;
+                width: 152px;
+            }
+
+            @include mixin.respond-height(short) {
+                height: 130px;
+                width: 104px;
+            }
         }
 
         &__orange {
             background-image: url('../../../public/assets/img/PlayerOrange.png');
             height: 250px;
             width: 200px;
+            background-size: cover;
+
+            @include mixin.respond(sm) {
+                height: 190px;
+                width: 152px;
+            }
+
+            @include mixin.respond-height(medium) {
+                height: 190px;
+                width: 152px;
+            }
+
+            @include mixin.respond-height(short) {
+                height: 130px;
+                width: 104px;
+            }
         }
 
         .button__text {

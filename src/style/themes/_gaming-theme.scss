@@ -10,6 +10,10 @@
         @include mixin.respond(sm1) {
             padding: 40px 16px 0;
         }
+
+        @include mixin.respond-height(short) {
+            padding: 8px 16px 0;
+        }
     }
 
     header {
@@ -20,6 +24,11 @@
 
         @include mixin.respond(sm) {
             padding: 24px 8px;
+        }
+
+        @include mixin.respond-height(short) {
+            padding: 8px;
+            margin-bottom: 10px;
         }
     }
 
@@ -40,6 +49,11 @@
             width: max-content;
             flex-direction: column;
             gap: 4px;
+        }
+
+        @include mixin.respond-height(short) {
+            flex-direction: row-reverse;
+            gap: 16px;
         }
     }
 
@@ -183,6 +197,10 @@
         &.grid-32 {
             grid-template-columns: repeat(6, 1fr);
             width: fit-content;
+
+            @include mixin.respond-height(short) {
+                grid-template-columns: repeat(9, 1fr);
+            }
         }
     }
 
@@ -252,7 +270,7 @@
                 }
 
                 @include mixin.respond-height(tall) {
-                    height: 65px;
+                    height: 60px;
                     width: 55px;
                 }
             }
@@ -281,8 +299,8 @@
             }
 
             @include mixin.respond-height(tall) {
-                height: 55px;
-                width: 47px;
+                height: 51px;
+                width: 46px;
             }
         }
     }
@@ -351,6 +369,8 @@
 
         &__box {
             height: 100%;
+            min-height: calc(100vh - 80px);
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -372,6 +392,21 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
+
+            @include mixin.respond(bi) {
+                height: 90px;
+                width: 660px;
+            }
+
+            @include mixin.respond(md) {
+                height: 55px;
+                width: 400px;
+            }
+
+            @include mixin.respond(sm) {
+                height: 40px;
+                width: 300px;
+            }
         }
     }
 
@@ -432,9 +467,23 @@
         font-family: "Orbitron";
         margin-top: 0;
 
+        @include mixin.respond(sm) {
+            height: 500px;
+        }
+
+        @include mixin.respond-height(medium) {
+            position: absolute;
+            bottom: 16px;
+            height: 520px;
+            margin-top: 0;
+        }
+
+        @include mixin.respond-height(short) {
+            height: 315px;
+        }
+
         &__headline {
-            height: 118px;
-            width: 100%;
+            width: max-content;
             display: flex;
             flex-direction: column;
             gap: 8px;
@@ -445,6 +494,10 @@
                 font-weight: 700;
                 line-height: 100%;
                 letter-spacing: 7%;
+
+                @include mixin.respond(sm) {
+                    font-size: 20px;
+                }
             }
 
             h2 {
@@ -452,6 +505,14 @@
                 font-weight: 700;
                 line-height: 100%;
                 letter-spacing: 7%;
+
+                @include mixin.respond(md) {
+                    font-size: 40px;
+                }
+
+                @include mixin.respond(sm) {
+                    font-size: 28px;
+                }
 
                 .blue {
                     color: #2BB1FF;
@@ -467,6 +528,12 @@
             background-image: url('../../../public/assets/img/Themes/gaming/pockal.png');
             height: 344px;
             width: 288px;
+            background-size: cover;
+
+            @include mixin.respond-height(short) {
+                height: 130px;
+                width: 104px;
+            }
         }
 
         .button__text {

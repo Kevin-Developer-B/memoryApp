@@ -9,21 +9,18 @@
 
 .container {
     @include mixin.respond(la) {
-        padding: 16px;
+        padding: 16px 16px 0;
     }
 }
 
 .setting-screen-container {
     height: 100%;
+    min-height: calc(100vh - 80px);
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: start;
     justify-content: center;
-
-    @include mixin.respond(sm) {
-        justify-content: start;
-    }
 }
 
 .setting__headline {
@@ -32,16 +29,28 @@
     align-items: center;
     margin-bottom: 32px;
 
+    @include mixin.respond-height(medium) {
+        margin-bottom: 10px;
+    }
+
     h2 {
         color: black;
         font-size: 54px;
         font-weight: 700;
         line-height: 100%;
         font-family: 'RedRose';
+
+        @include mixin.respond-height(short) {
+            font-size: 32px;
+        }
     }
 
     .underline-img {
         width: 251px;
+
+        @include mixin.respond-height(short) {
+            width: 140px;
+        }
     }
 }
 
@@ -60,6 +69,16 @@ form {
 
     @include mixin.respond(sm) {
         height: 570px;
+    }
+
+    @include mixin.respond-height(medium) {
+        height: 550px;
+        gap: 8px;
+    }
+
+    @include mixin.respond-height(short1) {
+        height: 100%;
+        gap: 8px;
     }
 
     .small-headline {
@@ -120,6 +139,10 @@ form {
                 @include mixin.respond(sm1) {
                     display: none;
                 }
+
+                @include mixin.respond-height(medium) {
+                    display: none;
+                }
             }
         }
 
@@ -146,6 +169,10 @@ form {
             @include mixin.respond(sm1) {
                 display: none;
             }
+
+            @include mixin.respond-height(medium) {
+                display: none;
+            }
         }
 
     }
@@ -157,6 +184,10 @@ form {
         right: 0;
 
         @include mixin.respond(sm1) {
+            display: none;
+        }
+
+        @include mixin.respond-height(medium) {
             display: none;
         }
     }
@@ -177,6 +208,12 @@ form {
         padding: 14px 8px;
     }
 
+    @include mixin.respond-height(short) {
+        position: fixed;
+        bottom: 16px;
+        right: 16px;
+    }
+
     &__box {
         height: 100%;
         width: 100%;
@@ -187,10 +224,18 @@ form {
         @include mixin.respond(sm) {
             flex-direction: column;
         }
+
+        @include mixin.respond-height(short) {
+            flex-direction: column;
+        }
     }
 
     &__img {
         @include mixin.respond(sm1) {
+            height: 24px;
+        }
+
+        @include mixin.respond-height(short) {
             height: 24px;
         }
     }

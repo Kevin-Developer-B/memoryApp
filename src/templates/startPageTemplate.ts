@@ -1,4 +1,4 @@
-export function startScreeTemplate() {
+export function startPageTemplate() {
     return `
         <div class="body-box">
             <div class="container">

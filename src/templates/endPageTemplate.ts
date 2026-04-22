@@ -1,6 +1,6 @@
-export function endScreenTemplate() {
+export function endPageTemplate() {
     return `
-        <div class="endscreen codeVibes-theme">
+        <div class="endscreen">
             <div class="container">
                 <div class="endscreen__box">
                     <div class="gameover">
@@ -22,7 +22,7 @@ export function endScreenTemplate() {
                 </div>
             </div>
         </div>
-        <div id="winnerScreen" class="winnerOverlay codeVibes-theme">
+        <div id="winnerScreen" class="winnerOverlay">
             <span class="confetti"></span>
             <div class="winner">
                 <div class="winner__headline">

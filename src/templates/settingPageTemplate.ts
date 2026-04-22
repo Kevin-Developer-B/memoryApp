@@ -1,4 +1,4 @@
-export function settingScreenTemplate() {
+export function settingPageTemplate() {
     return `
         <div class="setting-screen-box" id="settingScreen">
             <div class="container">

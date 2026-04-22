@@ -1,4 +1,4 @@
-export function gameScreenTemplate() {
+export function gamePageTemplate() {
     return `
         <div class="gamingBox">
             <div class="container">
