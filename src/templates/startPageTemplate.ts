@@ -9,7 +9,7 @@ export function startPageTemplate() {
                     </div>
                     <button class="btn" id="playBtn">
                         <img class="btn__img--rotate" src="./assets/img/stadia_controller.png" alt="arrow-left">
-                        <span class="btn__text">Play</span>
+                        <p class="btn__text">Play</p>
                         <img class="btn__img--scale" src="./assets/img/Arrow-left.png" alt="arrow-left">
                     </button>
                 </div>

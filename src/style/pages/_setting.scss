@@ -88,6 +88,23 @@ form {
         font-family: 'Almarai';
     }
 
+    .theme-options {
+        width: 0;
+    }
+
+    .theme-options:hover .option:not(:hover) input:checked+.circle {
+        background-image: url('../../../public/assets/img/circle.png');
+    }
+
+    .theme-options:hover .option:not(:hover) input:checked~.line {
+        background: none;
+    }
+
+    .theme-options:hover .option:not(:hover) input:checked~.theme-img {
+        opacity: 0;
+        pointer-events: none;
+    }
+
     .option input {
         display: none;
     }
@@ -97,7 +114,7 @@ form {
         align-items: center;
         cursor: pointer;
         gap: 8px;
-        padding: 10px 44px;
+        padding: 10px 0 10px 44px;
         width: max-content;
 
         @include mixin.respond(sm) {
@@ -125,7 +142,9 @@ form {
             }
 
             .theme-img {
-                display: block;
+                transition: 256ms ease-in-out;
+                opacity: 1;
+                pointer-events: none;
 
                 @include mixin.respond(sm1) {
                     display: none;
@@ -133,8 +152,9 @@ form {
             }
 
             &:hover .theme-img {
-                display: block;
+                opacity: 1;
                 z-index: 2;
+                pointer-events: none;
 
                 @include mixin.respond(sm1) {
                     display: none;
@@ -159,7 +179,8 @@ form {
         }
 
         & input:checked~.theme-img {
-            display: block;
+            opacity: 1;
+            pointer-events: none;
 
             @include mixin.respond(la) {
                 height: 300px;
@@ -178,10 +199,12 @@ form {
     }
 
     .theme-img {
-        display: none;
+        opacity: 0;
+        pointer-events: none;
         position: absolute;
         top: 0;
         right: 0;
+        transition: 256ms ease-in-out;
 
         @include mixin.respond(sm1) {
             display: none;

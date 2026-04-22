@@ -13,21 +13,22 @@ export function settingPageTemplate() {
                                 <img src="./assets/img/palette.png" alt="">
                                 <h3>Game themes</h3>
                             </div>
-                        
-                            <label class="option">
-                                <input type="radio" name="theme" value="codeVibes" checked>
-                                <span class="circle"></span>
-                                Code vibes theme
-                                <span class="line"></span>
-                                <img class="theme-img code-vibe-img" src="./assets/img/Theme Visual.png" alt="">
-                            </label>
-                            <label class="option">
-                                <input type="radio" name="theme" value="gaming">
-                                <span class="circle"></span>
-                                Gaming theme
-                                <span class="line"></span>
-                                <img class="theme-img code-vibe-img" src="./assets/img/Theme_gaming.png" alt="">
-                            </label>
+                            <div class="theme-options">
+                                <label class="option">
+                                    <input type="radio" name="theme" value="codeVibes" checked>
+                                    <span class="circle"></span>
+                                    Code vibes theme
+                                    <span class="line"></span>
+                                    <img class="theme-img code-vibe-img" src="./assets/img/Theme Visual.png" alt="">
+                                </label>
+                                <label class="option">
+                                    <input type="radio" name="theme" value="gaming">
+                                    <span class="circle"></span>
+                                    Gaming theme
+                                    <span class="line"></span>
+                                    <img class="theme-img code-vibe-img" src="./assets/img/Theme_gaming.png" alt="">
+                                </label>
+                            </div>
                         </div>
                         
 
