@@ -1,6 +1,6 @@
- ### <h1 align="center">🧠 Memory App</h1>
+ <h1 align="center">🧠 Memory App</h1>
 
-
+###
 
 A responsive and interactive **Memory Game** built as a pure frontend project using **TypeScript** and **SCSS**.
 
