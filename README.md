@@ -1,4 +1,4 @@
- align="center"🧠 Memory App
+ # <h1 align="center">🧠 Memory App</h1>
 
 
 
