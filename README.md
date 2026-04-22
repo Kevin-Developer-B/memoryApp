@@ -1,4 +1,4 @@
- <font <h1 align="center">🧠 Memory App</h1></font>
+ <font size=60 <h1 align="center">🧠 Memory App</h1></font>
 
 
 A responsive and interactive **Memory Game** built as a pure frontend project using **TypeScript** and **SCSS**.
